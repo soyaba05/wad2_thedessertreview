@@ -9,11 +9,29 @@ from django.contrib.auth.decorators import login_required
 
 def home(request):
     return HttpResponse("home page "
-                        "<a href='/dessertreview/aboutus/'>About us </a>"
-                        "<a href='/dessertreview/register'>Register</a>")
+                        "<a href='/dessertreview/aboutus/'> About us </a>"
+                        "<a href='/dessertreview/review'> Review </a>"                        
+                        "<a href='/dessertreview/register'> Register </a>")
     
 def about_us(request):
-    return HttpResponse("about us <a href='/dessertreview/'>Home</a>")
+    return HttpResponse("about us "
+                        "<a href='/dessertreview/'> Home </a>"
+                        "<a href='/dessertreview/review'> Review </a>"
+                        "<a href='/dessertreview/register'> Register</a>")
+
+def review(request):
+    return HttpResponse("review "
+                        "<a href='/dessertreview/'> Home </a>"
+                        "<a href='/dessertreview/aboutus/'> About us </a>"                        
+                        "<a href='/dessertreview/register'> Register </a>")
+
+def make_a_review(request):
+    return HttpResponse("make a review "
+                        "<a href='/dessertreview/'> Home </a>"
+                        "<a href='/dessertreview/review'> Review </a>"
+                        "<a href='/dessertreview/aboutus/'> About us </a>"                        
+                        "<a href='/dessertreview/register'> Register </a>")
+                        
 
 def register(request):
     registered=False
