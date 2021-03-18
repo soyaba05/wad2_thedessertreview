@@ -8,7 +8,12 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def home(request):
-    return HttpResponse("home page")
+    return HttpResponse("home page "
+                        "<a href='/dessertreview/aboutus/'>About us </a>"
+                        "<a href='/dessertreview/register'>Register</a>")
+    
+def about_us(request):
+    return HttpResponse("about us <a href='/dessertreview/'>Home</a>")
 
 def register(request):
     registered=False
