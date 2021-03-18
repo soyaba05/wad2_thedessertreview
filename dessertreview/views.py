@@ -7,6 +7,9 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+def home(request):
+    return HttpResponse("home page")
+
 def register(request):
     registered=False
     
