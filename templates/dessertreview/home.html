@@ -4,18 +4,21 @@
 <html>
 	<head>
 		<title>
-			Rango -
 			{% block title_block %}
-				How to Tango with Django!
+				Dessert Review
 			{% endblock %}
 		</title>
 	</head>
 	<body>
+        <h1>Dessert Review</h1>
+        <div>
+            <strong>{{ boldmessage }}</strong><br />
+        </div>
 		<div>
 			{% block body_block %}
+                <a href="/dessertreview/aboutus/">About us</a>
 			{% endblock %}
 		</div>
-		
 		
 		
 		<hr />

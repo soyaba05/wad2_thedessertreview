@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>
+			Dessert Review -
+			{% block title_block %}
+				About us
+			{% endblock %}
+		</title>
+    </head>
+    <body>
+        <div>
+			{% block body_block %}
+                <a href="/dessertreview/">Home</a>
+			{% endblock %}
+		</div>
+    </body>
+</html>

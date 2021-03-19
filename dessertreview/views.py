@@ -12,10 +12,7 @@ def home(request):
     return render(request, 'dessertreview/home.html', context=context_dict)
     
 def about_us(request):
-    return HttpResponse("about us "
-                        "<a href='/dessertreview/'> Home </a>"
-                        "<a href='/dessertreview/review'> Review </a>"
-                        "<a href='/dessertreview/register'> Register</a>")
+    return render(request, 'dessertreview/about_us.html')
 
 def review(request):
     return HttpResponse("review "
