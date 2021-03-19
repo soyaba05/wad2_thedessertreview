@@ -8,10 +8,8 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def home(request):
-    return HttpResponse("home page "
-                        "<a href='/dessertreview/aboutus/'> About us </a>"
-                        "<a href='/dessertreview/review'> Review </a>"                        
-                        "<a href='/dessertreview/register'> Register </a>")
+    context_dict = {'boldmessage': 'bold text testing'}
+    return render(request, 'dessertreview/home.html', context=context_dict)
     
 def about_us(request):
     return HttpResponse("about us "
