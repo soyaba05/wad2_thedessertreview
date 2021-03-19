@@ -1,4 +1,4 @@
-{% extends 'rango/base.html' %}
+{% extends 'dessertreview/base.html' %}
 {% load staticfiles %}
 
 
@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block body_block %}
-	<h1>Register for Rango</h1>
+	<h1>Register for theDessertReview</h1>
 	{% if registered %}
-		<strong>Thank you for registering!</strong>
+		<strong>Thank you for registering with theDessertReview!</strong>
 		<a href="{% url 'dessertreview:index' %}">Return to the homepage.</a><br />
 	{% else %}
 		<strong>Register here!</strong><br />
