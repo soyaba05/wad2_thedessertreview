@@ -21,6 +21,16 @@ class Shop(models.Model):
     def __str__(self):
         return self.name
 
+class Category(models.Model):
+    NAME_MAX_LENGTH = 128
+
+    name = models.CharField(max_length=NAME_MAX_LENGTH, unique=True)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Shop, self).save(*args, **kwargs)
+
 class Dessert(models.Model):
     TITLE_MAX_LENGTH = 128
     URL_MAX_LENGTH = 200
@@ -29,8 +39,14 @@ class Dessert(models.Model):
     name = models.CharField(max_length=TITLE_MAX_LENGTH)
     url = models.URLField(max_length=URL_MAX_LENGTH)
     picture = models.ImageField(upload_to='dessert_images', blank=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Shop, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -55,4 +71,5 @@ class Review(models.Model):
 
     def __str__(self):
         return self.text
+
 
