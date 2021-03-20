@@ -122,7 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR, ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'wad2_thedessertreview/static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-EDIA_ROOT = MEDIA_DIR
+MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'

@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html>
 
-</body>
+    <head>
+        <title>
+            Dessert Review - 
+            {% block title_block %}
+				Write a Review
+			{% endblock %}
+        </title>
+    </head>
+    
+    <body>
+        <h1>Write a Review</h1>
+        <div>
+            {% block body_block %}
+                <a href="/dessertreview/">Home</a>
+			{% endblock %}
+        </div>
+        
+        <hr />
+        <div>
+            <a href="{% url 'dessertreview:my_reviews %}">My Reviews</a>
+        </div>
+    </body>
 </html>

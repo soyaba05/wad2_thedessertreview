@@ -16,18 +16,10 @@ def about_us(request):
     return render(request, 'dessertreview/about_us.html')
 
 def review(request):
-    return HttpResponse("review "
-                        "<a href='/dessertreview/'> Home </a>"
-                        "<a href='/dessertreview/aboutus/'> About us </a>"                        
-                        "<a href='/dessertreview/register'> Register </a>")
+    return render(request, 'dessertreview/review.html')
 
 def make_a_review(request):
-    return HttpResponse("make a review "
-                        "<a href='/dessertreview/'> Home </a>"
-                        "<a href='/dessertreview/review'> Review </a>"
-                        "<a href='/dessertreview/aboutus/'> About us </a>"                        
-                        "<a href='/dessertreview/register'> Register </a>")
-                        
+    return render(request, 'dessertreview/make_a_review.html')             
 
 def register(request):
     registered=False
@@ -84,3 +76,11 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect(reverse('dessertreview:index'))
+
+@login_required
+def my_account(request):
+    return render(request, 'dessertreview/my_account.html')
+
+@login_required
+def my_reviews(request):
+    return render(request, 'dessertreview/my_reviews/html')
