@@ -10,16 +10,18 @@
 		</title>
 	</head>
 	<body>
+        <div>
+			{% block body_block %}
+                <a href="/dessertreview/aboutus/">About us</a>
+                <a href="/dessertreview/review/">Review</a>
+			{% endblock %}
+		</div>
+		
+        <hr />
         <h1>Dessert Review</h1>
         <div>
             <strong>{{ boldmessage }}</strong><br />
         </div>
-		<div>
-			{% block body_block %}
-                <a href="/dessertreview/aboutus/">About us</a>
-			{% endblock %}
-		</div>
-		
 		
 		<hr />
 		<div>

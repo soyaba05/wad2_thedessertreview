@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>
+            Dessert Review - 
+            {% block title_block %}
+				Reviews
+			{% endblock %}
+        </title>
+    </head>
+    <body>
+        <div>
+            {% block body_block %}
+                <a href="/dessertreview/">Home</a>
+                <a href="/dessertreview/aboutus/">About Us</a>
+			{% endblock %}
+        </div>
+        <hr />
+        <h1>Reviews</h1>
+        
+        <hr />
+        <div>
+            <ul>
+            {% if user.is_authenticated %}
+                <li><a href="/dessertreview/review/makeareview/">Make a Review</a></li>
+                <li><a href="/dessertreview/login/myaccount/myreviews">My Reviews</a></li>
+                <li><a href="{% url 'dessertreview:logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'dessertreview:register' %}">Sign Up</a></li>
+				<li><a href="{% url 'dessertreview:login' %}">Login</a></li>
+            {% endif %}
+            </ul>
+        </div>
+    </body>
+</html>

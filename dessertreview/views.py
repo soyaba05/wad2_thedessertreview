@@ -15,18 +15,10 @@ def about_us(request):
     return render(request, 'dessertreview/about_us.html')
 
 def review(request):
-    return HttpResponse("review "
-                        "<a href='/dessertreview/'> Home </a>"
-                        "<a href='/dessertreview/aboutus/'> About us </a>"                        
-                        "<a href='/dessertreview/register'> Register </a>")
+    return render(request, 'dessertreview/review.html')
 
 def make_a_review(request):
-    return HttpResponse("make a review "
-                        "<a href='/dessertreview/'> Home </a>"
-                        "<a href='/dessertreview/review'> Review </a>"
-                        "<a href='/dessertreview/aboutus/'> About us </a>"                        
-                        "<a href='/dessertreview/register'> Register </a>")
-                        
+    return render(request, 'dessertreview/make_a_review.html')             
 
 def register(request):
     registered=False
