@@ -10,7 +10,7 @@
 	<h1>Register for theDessertReview</h1>
 	{% if registered %}
 		<strong>Thank you for registering with theDessertReview!</strong>
-		<a href="{% url 'dessertreview:index' %}">Return to the homepage.</a><br />
+		<a href="{% url 'dessertreview:home' %}">Return to the homepage.</a><br />
 	{% else %}
 		<strong>Register here!</strong><br />
 		<form id="user_form" method="post" action="{% url 'dessertreview:register' %}"

@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from dessertreview.forms import UserForm, UserProfileForm
 from django.contrib.auth import logout, login, authenticate
 from django.http import HttpResponse
 from django.urls import reverse

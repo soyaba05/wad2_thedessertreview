@@ -1,5 +1,5 @@
-from django.cotrib.auth.models import User
-from dessertreview.models import UserProfile, Review
+from django.contrib.auth.models import User
+from dessertreview.models import UserProfile, Review, Category
 from django import forms
 
 # New user form
@@ -8,8 +8,8 @@ class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
 
     class Meta:
-    model = User
-    fields = ('username', 'email', 'password',)
+        model = User
+        fields = ('firstname', 'lastname', 'username', 'email', 'password',)
 
 #  Login form
 class LoginForm(forms.ModelForm):
@@ -18,3 +18,18 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'password',)
+
+
+# Review form
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model =  Review
+        fields = ('name', 'description', 'picture')
+
+class CategoryForm(forms.ModelForm):
+    slug = forms.CharField(widget=forms.HiddenInput(), required=False)
+
+    class Meta:
+        model = Category
+        fields = ('name', 'descriptiom', 'picture')
+        
