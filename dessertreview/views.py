@@ -83,3 +83,11 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect(reverse('dessertreview:index'))
+
+@login_required
+def my_account(request):
+    return render(request, 'dessertreview/my_account.html')
+
+@login_required
+def my_reviews(request):
+    return render(request, 'dessertreview/my_reviews/html')
