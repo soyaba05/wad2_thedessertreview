@@ -115,3 +115,21 @@ def show_category(request, category_name_slug):
         context_dict['pages'] = None
     # Go render the response and return it to the client.
     return render(request, 'dessertreview/category.html', context=context_dict)
+
+def show_dessert(request, dessert_slug):
+    context_dict = {}
+
+    try:
+        dessert = Dessert.objects.get(slug=dessert_slug)
+        context_dict['dessert'] = dessert
+
+    except Dessert.DoesNotExist:
+        context_dict['dessert'] = None
+
+    return render(request, 'dessertreview/dessert.html', context=context_dict)
+
+def categories(request):
+    context_dict = {}
+    categories = Category.objects.all()
+    context_dict['categories'] = categories
+    return render(request, 'dessertreview/categories.html', context=context_dict)

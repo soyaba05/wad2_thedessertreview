@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-{% extends 'dessertreview/base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
     {% if dessert %}
-        {{ dessert.name }}
+        <title>{{ dessert.name }}</title>
     {% else %}
-        Unknown Dessert
+        <title>Unknown Dessert</title>
     {% endif %}
 {% endblock %}
 
 {% block body_block %}
+    <a href="/dessertreview/">Home</a>
     {% if dessert %}
-        <h1>{{ dessert.name }}</h1></br>
-        {{dessert.picture}}
+        <h1>{{ dessert.name }}</h1>
+        <p>{{dessert.description}}</p>
+        <img src="/media/{{dessert.picture}}" alt="image of {{dessert.name}}" width="300" height="300"/>
         
     {% else %}
-        The specified category does not exist.
+        The specified dessert does not exist.
     {% endif %}
 {% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+{% block title_block %}
+    <title>Categories</title>
+{% endblock %}
+
+{% block body_block %}
+    <h1> Categories </h1>
+    <ul>
+        {% if categories %}
+            {% for c in categories %}
+                {% if c == current_category %}
+                    <li>
+                        <strong>
+                            <a href="{% url 'dessertreview:show_category' c.slug %}">{{ c.name }}</a>
+                        </strong>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'dessertreview:show_category' c.slug %}">{{ c.name }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <li><strong>There are no categories present.</strong></li>
+        {% endif %}
+    </ul>
+{% endblock %}

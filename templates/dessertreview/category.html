@@ -1,29 +1,26 @@
 <!DOCTYPE html>
-{% extends 'dessertreview/base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
     {% if category %}
-        {{ category.name }}
+        <title>{{ category.name }}</title>
     {% else %}
-        Unknown Category
+        <title>Unknown Category</title>
     {% endif %}
 {% endblock %}
 
 {% block body_block %}
+    <a href="/dessertreview/">Home</a>
     {% if category %}
         <h1>{{ category.name }}</h1>
         {% if desserts %}
             <ul>
                 {% for dessert in desserts %}
-                <li><a href="{{ dessert.url }}">{{ dessert.name }}</a></li>
+                    <li><a href="{% url 'dessertreview:show_dessert' dessert.slug %}">{{ dessert.name }}</a></li>
                 {% endfor %}
             </ul>
         {% else %}
             <strong>No desserts currently in category.</strong>
-        {% endif %}
-        {% if user.is_authenticated %}
-            <a href="{% url 'rango:add_dessert' category.slug %}">Add dessert</a> <br />
         {% endif %}
     {% else %}
         The specified category does not exist.
