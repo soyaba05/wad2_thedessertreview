@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+{% block title_block %}
+    <title>Dessert Shops</title>
+{% endblock %}
+
+{% block body_block %}
+    <a href="{% url 'home' %}">Home</a>
+    <h1> Dessert Shops </h1>
+    <ul>
+        {% if shops %}
+            {% for s in shops %}
+                <li>
+                    <a href="{% url 'dessertreview:show_shop' s.slug %}">{{ s.name }}</a>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li><strong>There are no shops present.</strong></li>
+        {% endif %}
+    </ul>
+{% endblock %}

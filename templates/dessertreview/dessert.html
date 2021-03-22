@@ -14,6 +14,7 @@
     {% if dessert %}
         <h1>{{ dessert.name }}</h1>
         <p>{{dessert.description}}</p>
+        <p>Served at <a href="{% url 'dessertreview:show_shop' dessert.shop.slug %}">{{dessert.shop}}</p>
         <img src="/media/{{dessert.picture}}" alt="image of {{dessert.name}}" width="300" height="300"/>
         
     {% else %}

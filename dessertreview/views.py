@@ -133,3 +133,23 @@ def categories(request):
     categories = Category.objects.all()
     context_dict['categories'] = categories
     return render(request, 'dessertreview/categories.html', context=context_dict)
+
+def show_shop(request, shop_slug):
+    context_dict = {}
+
+    try:
+        shop = Shop.objects.get(slug=shop_slug)
+        desserts = Dessert.objects.filter(shop=shop)
+        context_dict['shop'] = shop
+        context_dict['desserts'] = desserts
+
+    except Shop.DoesNotExist:
+        context_dict['shop'] = None
+        
+    return render(request, 'dessertreview/shop.html', context=context_dict)
+
+def shops(request):
+    context_dict = {}
+    shops = Shop.objects.all()
+    context_dict['shops'] = shops
+    return render(request, 'dessertreview/shops.html', context=context_dict)

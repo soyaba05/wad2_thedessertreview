@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+{% block title_block %}
+    {% if shop %}
+        <title>{{ shop.name }}</title>
+    {% else %}
+        <title>Unknown Shop</title>
+    {% endif %}
+{% endblock %}
+
+{% block body_block %}
+    <a href="{% url 'home' %}">Home</a>
+    {% if shop %}
+        <h1>{{ shop.name }}</h1>
+        <p>{{shop.location}}</p>
+        {% if desserts %}
+            {% regroup desserts by category as dessert_list %}
+            <ul>
+                {% for category in dessert_list %}
+                    <li><h3>{{ category.grouper }}</h3>
+                        <ul>
+                        {% for dessert in category.list %}
+                            <li><a href="{% url 'dessertreview:show_dessert' dessert.slug %}">{{ dessert.name }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>This shop has no desserts.</strong>
+        {% endif %}
+    {% else %}
+        The specified shop does not exist.
+    {% endif %}
+{% endblock %}

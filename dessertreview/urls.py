@@ -14,6 +14,8 @@ urlpatterns = [
     path("login/myaccount/myreviews", views.my_reviews, name='my reviews'),
     path('logout/', views.user_logout, name='logout'),
     path('category/<slug:category_name_slug>/', views.show_category, name='show_category'),
-    path('dessert/<slug:dessert_slug>/', views.show_dessert, name='show_dessert'),
     path('categories/', views.categories, name='categories'),
+    path('shops/', views.shops, name='shops'),
+    path('shop/<slug:shop_slug>/', views.show_shop, name='show_shop'),
+    path('dessert/<slug:dessert_slug>/', views.show_dessert, name='show_dessert'),
 ]
