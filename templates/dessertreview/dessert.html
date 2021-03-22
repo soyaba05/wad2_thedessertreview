@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'dessertreview/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    {% if dessert %}
+        {{ dessert.name }}
+    {% else %}
+        Unknown Dessert
+    {% endif %}
+{% endblock %}
+
+{% block body_block %}
+    {% if dessert %}
+        <h1>{{ dessert.name }}</h1></br>
+        {{dessert.picture}}
+        
+    {% else %}
+        The specified category does not exist.
+    {% endif %}
+{% endblock %}

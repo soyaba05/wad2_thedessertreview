@@ -9,7 +9,7 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('firstname', 'lastname', 'username', 'email', 'password',)
+        fields = ('username', 'email', 'password',)
 
 #  Login form
 class LoginForm(forms.ModelForm):
@@ -24,12 +24,12 @@ class LoginForm(forms.ModelForm):
 class ReviewForm(forms.ModelForm):
     class Meta:
         model =  Review
-        fields = ('name', 'description', 'picture')
+        fields = ('text',)
 
 class CategoryForm(forms.ModelForm):
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
 
     class Meta:
         model = Category
-        fields = ('name', 'descriptiom', 'picture')
+        fields = ('name',)
         

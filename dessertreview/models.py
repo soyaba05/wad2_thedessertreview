@@ -37,6 +37,7 @@ class Dessert(models.Model):
 
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
     name = models.CharField(max_length=TITLE_MAX_LENGTH)
+    description = models.CharField(max_length=200)
     url = models.URLField(max_length=URL_MAX_LENGTH)
     picture = models.ImageField(upload_to='dessert_images', blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
