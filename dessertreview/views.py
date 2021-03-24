@@ -10,8 +10,7 @@ from dessertreview.models import Category, Dessert, Shop
 # Create your views here.
 
 def home(request):
-    context_dict = {'boldmessage': 'bold text testing'}
-    return render(request, 'dessertreview/home.html', context=context_dict)
+    return render(request, 'dessertreview/home.html')
     
 def about_us(request):
     return render(request, 'dessertreview/about_us.html')
@@ -71,7 +70,6 @@ def user_login(request):
             return HttpResponse("Invalid login details supplied.")
     else:
         return render(request, 'dessertreview/login.html')
-
 
 @login_required
 def user_logout(request):
