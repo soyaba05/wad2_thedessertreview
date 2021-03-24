@@ -3,13 +3,17 @@
 
 
 {% block title_block %}
-	Register
+	Create an Account
+{% endblock %}
+
+{% block head_block %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 {% endblock %}
 
 {% block body_block %}
 
 	<h1>Become a part of the community!</h1>
-	{% if registered %}
+	{% if user.is_authenticated %}
 		<strong>Thank you for registering with theDessertReview!</strong>
 		<a href="{% url 'dessertreview:home' %}">Return to the homepage.</a><br />
 	{% else %}
@@ -29,7 +33,7 @@
 
 		<p>
 			Already got an Account?
-			<a href="{% url 'eventastic:login' %}">Login Here</a>
+			<a href="{% url 'dessertreview:login' %}">Login Here</a>
 		</p>
 	{% endif %}
 {% endblock %}

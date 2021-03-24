@@ -32,7 +32,7 @@ rel="stylesheet"/>
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Sign In</h5>
-                        <form class="form-signin">
+                        <form class="form-signin text-center" id="login_form" method="post" action="{% url 'dessertreview:login' %}">
                             <div class="form-label-group">
                                 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                                 <label for="inputEmail">Email address</label>
@@ -53,6 +53,10 @@ rel="stylesheet"/>
 
 
                         </form>
+                        <p>
+                            Not Registered?
+                            <a href="{% url 'dessertreview:register' %}">Register Here</a>
+                        </p>
                     </div>
                 </div>
             </div>

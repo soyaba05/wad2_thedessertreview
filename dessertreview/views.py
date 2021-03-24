@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from dessertreview.forms import UserForm
+from dessertreview.forms import UserForm, UserProfileForm
 from django.contrib.auth import logout, login, authenticate
 from django.http import HttpResponse
 from django.urls import reverse
@@ -82,7 +82,7 @@ def my_account(request):
 
 @login_required
 def my_reviews(request):
-    return render(request, 'dessertreview/my_reviews/html')
+    return render(request, 'dessertreview/my_reviews.html')
 
 def show_category(request, category_name_slug):
     # Create a context dictionary which we can pass
