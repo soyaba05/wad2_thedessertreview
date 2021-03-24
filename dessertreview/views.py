@@ -62,7 +62,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return redirect(reverse('dessertreview:index'))
+                return redirect(reverse('dessertreview:home'))
             else:
                 return HttpResponse("Your account is disabled.")
         else:
@@ -74,7 +74,7 @@ def user_login(request):
 @login_required
 def user_logout(request):
     logout(request)
-    return redirect(reverse('dessertreview:index'))
+    return redirect(reverse('dessertreview:home'))
 
 @login_required
 def my_account(request):

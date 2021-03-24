@@ -33,9 +33,11 @@ rel="stylesheet"/>
                     <div class="card-body">
                         <h5 class="card-title text-center">Sign In</h5>
                         <form class="form-signin text-center" id="login_form" method="post" action="{% url 'dessertreview:login' %}">
+                            {% csrf_token %}
+                            
                             <div class="form-label-group">
-                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                                <label for="inputEmail">Email address</label>
+                                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus="" >                                
+                                <label for="username">Email address</label>
                             </div>
                             <div class="form-label-group">
                                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
@@ -64,14 +66,3 @@ rel="stylesheet"/>
 
     </div>
 {% endblock %}
-    <!-- <h1>Login</h1>
-
-    <form id="login_form" method="post" action="{% url 'eventastic:login' %}">
-        {% csrf_token %}
-        Username: <input type="text" name="username" value="" size="50" />
-        <br />
-        Password: <input type="password" name="password" value="" size="50" />
-        <br />
-        <input type="submit" value="submit" />
-    </form>
-{% endblock %} -->
