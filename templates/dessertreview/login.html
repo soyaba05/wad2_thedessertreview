@@ -8,8 +8,7 @@
 {% block head_block %}
 <link
 href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
-rel="stylesheet"
-/>
+rel="stylesheet"/>
 <link href="./main.css" rel="stylesheet" />
 <!-- sign in template -->
 <link href="{% static 'css/login.css' %}" rel="stylesheet">
@@ -60,7 +59,8 @@ rel="stylesheet"
         </div>
 
     </div>
-    <h1>Login</h1>
+{% endblock %}
+    <!-- <h1>Login</h1>
 
     <form id="login_form" method="post" action="{% url 'eventastic:login' %}">
         {% csrf_token %}
@@ -70,4 +70,4 @@ rel="stylesheet"
         <br />
         <input type="submit" value="submit" />
     </form>
-{% endblock %}
+{% endblock %} -->

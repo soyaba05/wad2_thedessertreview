@@ -7,7 +7,8 @@
 {% endblock %}
 
 {% block body_block %}
-	<h1>Register for theDessertReview</h1>
+
+	<h1>Become a part of the community!</h1>
 	{% if registered %}
 		<strong>Thank you for registering with theDessertReview!</strong>
 		<a href="{% url 'dessertreview:home' %}">Return to the homepage.</a><br />
@@ -25,5 +26,10 @@
 			<!-- Provide a button to click to submit the form. -->
 			<input type="submit" name="submit" value="Register" />
 		</form>
+
+		<p>
+			Already got an Account?
+			<a href="{% url 'eventastic:login' %}">Login Here</a>
+		</p>
 	{% endif %}
 {% endblock %}
