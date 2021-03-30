@@ -38,19 +38,28 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="nav justify-content-end">
-                    <li class="nav-item px-5">
+                <ul class="navbar nav ml-auto">
+                    <li class="nav-item px">
                         <a class="nav-link" href="{% url 'dessertreview:home' %}">Home</a>
                     </li>
-                    <li class="nav-item  px-5">
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'dessertreview:about_us' %}">About Us</a>
                     </li>
-                    <li class="nav-item  px-5">
+                    <li class="nav-item px-2">
                         <a href="{% url 'dessertreview:categories' %}">Categories</a>
                     </li>
-                    <li class="nav-item  px-5">
+                    <li class="nav-item px-2">
                         <a href="{% url 'dessertreview:shops' %}">Shops</a>
                     </li>
+                    <li class="nav-item px-2">
+                        <a href="{% url 'dessertreview:register' %}" class="btn btn-sm btn-primary btn-block text-camelcase" type="submit">Sign Up</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a href="{% url 'dessertreview:login' %}" class="btn btn-sm btn-primary btn-block text-camelcase" type="submit">Log In</a>
+                    </li>
+
+
+
 
                 </ul>
             </div>
@@ -59,6 +68,15 @@
         </div>
         <span>
             {% if user.is_authenticated %}
+            <button type="button" onclick="document.location='{{ login_url }}'" class="btn button-custom px-3 m-1">Login</button>
+                <!-- Show these links when the user is logged in -->
+                <li><a href="/dessertreview/login/myaccount/myreviews">My Reviews</a></li>
+                <li><a href="/dessertreview/login/myaccount">My Account</a></li>
+
+                <li><a href="{% url 'dessertreview:logout' %}">Logout</a></li>
+            {% else %}
+                <!-- Show these links when the user is NOT logged in -->
+
             {% endif %}
         </span>
     </nav>
@@ -68,20 +86,8 @@
         {% block body_block %}
         {% endblock %}
         </div>
-        <hr />
-    <div>
-        <ul>
-            {% if user.is_authenticated %}
-                <!-- Show these links when the user is logged in -->
-                <li><a href="/dessertreview/login/myaccount/myreviews">My Reviews</a></li>
-                <li><a href="{% url 'dessertreview:logout' %}">Logout</a></li>
-            {% else %}
-                <!-- Show these links when the user is NOT logged in -->
-                <li><a href="{% url 'dessertreview:register' %}">Sign Up</a></li>
-                <li><a href="{% url 'dessertreview:login' %}">Login</a></li>
-            {% endif %}
-            <!-- Outside the conditional statements, ALWAYS show -->
-        </ul>
-    </div>
+        
+    
+    
     </body>
 </html>

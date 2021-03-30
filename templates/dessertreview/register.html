@@ -7,21 +7,42 @@
 {% endblock %}
 
 {% block head_block %}
+<link
+href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+rel="stylesheet"/>
+<link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet"/>
+<link href="./main.css" rel="stylesheet" />
+<!-- register in template -->
+
+<link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/buttons.css' %}" rel="stylesheet">
+<link href="{% static 'js/bootstrap.bundle.min.js' %}" rel="stylesheet">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 {% endblock %}
 
 {% block body_block %}
+<div class="v153_332">
+    <span class="v153_333 text-center">
 
 	<h1>Become a part of the community!</h1>
+	<strong><h2>Register here</h2>!</strong><br />
+
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+			<div class="card card-signin my-5">
+				<div class="card-body">
 	{% if user.is_authenticated %}
 		<strong>Thank you for registering with theDessertReview!</strong>
 		<a href="{% url 'dessertreview:home' %}">Return to the homepage.</a><br />
 	{% else %}
-		<strong>Register here!</strong><br />
 		<form id="user_form" method="post" action="{% url 'dessertreview:register' %}"
 			  enctype="multipart/form-data">
 				  
 			{% csrf_token %}
+			
 			
 			<!-- Display each form -->
 			{{ user_form.as_p }}
