@@ -1,12 +1,32 @@
-{% extends 'dessertreview/home.html' %}
+{% extends 'dessertreview/base.html' %}
 {% load staticfiles %} <!-- New line -->
 
 {% block title_block %}
 	My Reviews
 {% endblock %}
 
-{% block body_block %}
+{% block head_block %}
+<head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./main.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
 
+{% endblock %}
+
+{% block body_class %}
+
+{% endblock %}
+
+
+{% block body_block %}
+<div class="main px-5 mx-5 mb-5">
+    <h2 class="text-center my-4"> Your Reviews </h2>
+    <br>
+    <div class="text-center">
 
 	<h1>Reviews</h1>
 

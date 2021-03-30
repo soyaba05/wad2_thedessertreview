@@ -19,14 +19,15 @@
         </title>
 	</head>
     
-    <body>
+ 
     <header style="background-color: #FFFFFF">
-        <img class="d-inline px-2 py-2" src="{% static 'images/logo.png' %}" style="height: 7rem;"/>
-        </header>
+        
+    </header>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style = "background-color: #FFFFFF;">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'dessertreview:home' %}">
+                
                 <img src="{% static 'images/logo.png' %}" alt="" width="30" height="24" class="d-inline-block align-top">
                 theDessertReview
             </a>
@@ -59,13 +60,15 @@
                     </li>
 
 
-
-
                 </ul>
             </div>
+            <body>
+                
+            
         {% url 'dessertreview:register' as register_url %}
         {% url 'dessertreview:login' as login_url %}
         </div>
+
         <span>
             {% if user.is_authenticated %}
             <button type="button" onclick="document.location='{{ login_url }}'" class="btn button-custom px-3 m-1">Login</button>

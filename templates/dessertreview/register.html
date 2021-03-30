@@ -22,22 +22,26 @@ rel="stylesheet"/>
 {% endblock %}
 
 {% block body_block %}
+<div class="main">
+
 <div class="v153_332">
     <span class="v153_333 text-center">
 
 	<h1>Become a part of the community!</h1>
-	<strong><h2>Register here</h2>!</strong><br />
 
-</div>
+	<strong><h2>Register here</h2>!</strong><br />
+	{% if user.is_authenticated %}
+	<strong>Thank you for registering with theDessertReview!</strong>
+	<a href="{% url 'dessertreview:login' %}">Log In Now!</a>
+
+	<a href="{% url 'dessertreview:home' %}">Return to the homepage.</a><br />
+	{% else %}
+
 <div class="container">
 	<div class="row">
 		<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 			<div class="card card-signin my-5">
 				<div class="card-body">
-	{% if user.is_authenticated %}
-		<strong>Thank you for registering with theDessertReview!</strong>
-		<a href="{% url 'dessertreview:home' %}">Return to the homepage.</a><br />
-	{% else %}
 		<form id="user_form" method="post" action="{% url 'dessertreview:register' %}"
 			  enctype="multipart/form-data">
 				  
@@ -56,5 +60,6 @@ rel="stylesheet"/>
 			Already got an Account?
 			<a href="{% url 'dessertreview:login' %}">Login Here</a>
 		</p>
+	</div>
 	{% endif %}
 {% endblock %}

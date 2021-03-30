@@ -16,6 +16,8 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ("picture",)
 
+
+
 #  Login form
 class LoginForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
