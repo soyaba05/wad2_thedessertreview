@@ -3,14 +3,13 @@
 
 {% block title_block %}
     {% if dessert %}
-        <title>{{ dessert.name }}</title>
+        {{ dessert.name }}
     {% else %}
-        <title>Unknown Dessert</title>
+        Unknown Dessert
     {% endif %}
 {% endblock %}
 
 {% block body_block %}
-    <a href="/dessertreview/">Home</a>
     {% if dessert %}
         <h1>{{ dessert.name }}</h1>
         <p>{{dessert.description}}</p>

@@ -3,14 +3,13 @@
 
 {% block title_block %}
     {% if shop %}
-        <title>{{ shop.name }}</title>
+        {{ shop.name }}
     {% else %}
-        <title>Unknown Shop</title>
+        Unknown Shop
     {% endif %}
 {% endblock %}
 
 {% block body_block %}
-    <a href="{% url 'home' %}">Home</a>
     {% if shop %}
         <h1>{{ shop.name }}</h1>
         <p>{{shop.location}}</p>
