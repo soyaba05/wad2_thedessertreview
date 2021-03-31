@@ -20,7 +20,7 @@ def write_a_review(request):
 
 def register(request):
     registered=False
-    
+    print("1st")
     if request.method == 'POST':
         user_form = UserForm(request.POST)
         profile_form = UserProfileForm(request.POST)
@@ -30,7 +30,6 @@ def register(request):
             
             user.set_password(user.password)
             user.save()
-            
             profile = profile_form.save(commit=False)
             profile.user = user
 

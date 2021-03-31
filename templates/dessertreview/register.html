@@ -23,29 +23,26 @@ rel="stylesheet"/>
 
 {% block body_block %}
 <div class="main">
+	
+{% if registered %}
+<span class="v153_333 text-center">
 
+	<h1>Thank you for registering with theDessertReview!</h1>
+	<strong><h2>You can now login</h2>!</strong><br />
+{% else %}
 <div class="v153_332">
     <span class="v153_333 text-center">
 
 	<h1>Become a part of the community!</h1>
 
 	<strong><h2>Register here</h2>!</strong><br />
-	
-	{% if user.is_authenticated %}
-
-	<strong>Thank you for registering with theDessertReview!</strong>
-
-	<a href="{% url 'dessertreview:my_account' %}">Return to the homepage.</a><br />
-	{% else %}
 
 <div class="container">
 	<div class="row">
 		<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 			<div class="card card-signin my-5">
 				<div class="card-body">
-		<form id="user_form" method="post" action="{% url 'dessertreview:home' %}"
-			  enctype="multipart/form-data">
-				  
+		<form id="user_form" method="post" action="{% url 'dessertreview:register' %}" enctype="multipart/form-data">
 			{% csrf_token %}
 			
 			
