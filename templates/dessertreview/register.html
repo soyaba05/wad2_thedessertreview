@@ -30,11 +30,12 @@ rel="stylesheet"/>
 	<h1>Become a part of the community!</h1>
 
 	<strong><h2>Register here</h2>!</strong><br />
+	
 	{% if user.is_authenticated %}
-	<strong>Thank you for registering with theDessertReview!</strong>
-	<a href="{% url 'dessertreview:login' %}">Log In Now!</a>
 
-	<a href="{% url 'dessertreview:home' %}">Return to the homepage.</a><br />
+	<strong>Thank you for registering with theDessertReview!</strong>
+
+	<a href="{% url 'dessertreview:my_account' %}">Return to the homepage.</a><br />
 	{% else %}
 
 <div class="container">
