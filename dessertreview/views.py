@@ -15,11 +15,8 @@ def home(request):
 def about_us(request):
     return render(request, 'dessertreview/about_us.html')
 
-def review(request):
-    return render(request, 'dessertreview/review.html')
-
-def make_a_review(request):
-    return render(request, 'dessertreview/make_a_review.html')             
+def write_a_review(request):
+    return render(request, 'dessertreview/write_a_review.html')             
 
 def register(request):
     registered=False
