@@ -1,0 +1,27 @@
+body{
+    margin-top: 320px;
+    padding: 0;
+    font-family: sans-serif;
+    color: #fff;
+    background: #363636;
+}
+
+footer{
+    background: rgb(0, 91, 143);
+}
+a:link{
+    color: #fff;
+    text-decoration: none;
+}
+a:visited{
+    color: #fff;
+    text-decoration: none;
+}
+a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+a:active{
+    color: #fff;
+    text-decoration: none;
+}
