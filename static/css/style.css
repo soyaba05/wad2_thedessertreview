@@ -224,6 +224,14 @@ header .hero-image .photo-bg {
   /* display: none; */
 }
 
+.footer{
+    text-align: center;
+    color: white;
+    background-color: azure;
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
 .footer-links{
     text-align: center;
     color: white;
