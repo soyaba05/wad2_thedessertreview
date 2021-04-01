@@ -1,22 +1,108 @@
 {% extends 'dessertreview/base.html' %}
 {% load staticfiles %} <!-- New line -->
 
+
 {% block title_block %}
 	My Account
 {% endblock %}
 
+
+
+{% block head_block %}
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="{% static 'css/myaccount.css' %}" rel="stylesheet">
+
+
+{% endblock %}
+
+{% block body_class %}
+
+{% endblock %}
+
 {% block body_block %}
 
-
-	<h1>Account details</h1>
-
+<div class="v153_332">
+    <span class="v153_333 text-center">
+    <h1>Account details</h1>
+    
+</span>
 	<div>
         <br/>
-        username = {{ user.username }}
         <br/>
-        email address = {{ user.email }}
         <br />
     </div>
+    <div class="container">
+        <div class="text-right">
+            <button type="button" class="btn btn-primary">Edit Profile</button>
+            <button type="button" class="btn btn-danger">Delete Profile</button>
+
+        </div>
+    </div>
+    <div class="container">
+        
+        <div class="row profile">
+            <div class="col-md-3">
+                <div class="profile-sidebar">
+                    <!-- SIDEBAR USERPIC -->
+                    <div class="profile-userpic">
+                        <img src="https://static.change.org/profile-img/default-user-profile.svg" class="img-responsive" alt="">
+                    </div>
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">
+                            Profile of {{ user.username }}
+                        </div>
+                        <div class="profile-usertitle-job" style="justify-content: center;">
+                        email address: {{ user.email }}
+                        </div>
+                    </div>
+                    <!-- END SIDEBAR USER TITLE -->
+                    <!-- SIDEBAR BUTTONS -->
+                    <div class="profile-userbuttons">
+                        <button type="button" class="btn btn-success btn-sm">Follow</button>
+                        <button type="button" class="btn btn-danger btn-sm">Message</button>
+                    </div>
+                    <!-- END SIDEBAR BUTTONS -->
+                    <!-- SIDEBAR MENU -->
+                    <div class="profile-usermenu" style="justify-content: left;">
+                        <ul class="container">
+
+                            <br>
+                            <li>
+                                <a href="#">
+                                <i class="glyphicon glyphicon-user"></i>
+                                Account Settings </a>
+                            </li>
+                
+                            <li>
+                                <a href="#">
+                                <i class="glyphicon glyphicon-flag"></i>
+                                Help </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END MENU -->
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="profile-content">
+                    <h2>About the user:</h2>
+                    Lorem impsum some text about user<br />
+                    <br />
+                    First Name: {{ user.first_name }}<br /><br />
+                    Last Name: {{ user.last_name }}
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  
+    <br>
+    <br>
+
 
 
 {% endblock %}
