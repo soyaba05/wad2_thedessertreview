@@ -73,25 +73,41 @@
 
                 </ul>
             </div>
-            <body>
-                
+        </nav>
+        <body>        
             
-        {% url 'dessertreview:register' as register_url %}
-        {% url 'dessertreview:login' as login_url %}
-        </div>
-        
-    </nav>
-    
+            {% url 'dessertreview:register' as register_url %}
+            {% url 'dessertreview:login' as login_url %}
 
-        
-        <div>
-        <hr />
-        {% block body_block %}
-        
-        {% endblock %}
+            <div>
+            <hr />
+                {% block body_block %}
+                {% endblock %}
+            <hr />
+            </div>
 
-        
-    
-    
-    </body>
-</html>
+            <section class="footer-container">
+                <div class="footer-div-left">
+                    <p class="footer-div-left-p">
+                        ©TheDessertReview. 2021. A place for dessert lovers
+                    </p>
+                </div>
+                <div class="footer-div-right">
+                    <p class="footer-div-right-p">
+                        Follow us:
+                        <a href="https://www.facebook.com">
+                            <img src="{% static 'images/facebook-logo.png' %}" class="footer-img">
+                        </a>
+                        <a href="https://www.instagram.com">
+                            <img src="{% static 'images/ig-logo.jpeg' %}" class="footer-img">
+                        </a>
+                        <a href="https://www.linkedin.com">
+                            <img src="{% static 'images/linkedin-logo.png' %}" class="footer-img">
+                        </a>
+                        <a href="https://www.twitter.com">
+                            <img src="{% static 'images/twitter-logo.png' %}" class="footer-img">
+                        </a>
+                    </p>
+                </div>
+            </section>
+        </body>

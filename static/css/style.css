@@ -223,3 +223,37 @@ header .hero-image .photo-bg {
 .search-box {
   /* display: none; */
 }
+
+.footer-container{
+    margin: 10px;
+    border: 10px transparent;
+}
+
+.footer-div-right{
+    width: 50%;
+    float: right;
+    text-align: right;
+}
+
+.footer-div-left{
+    width: 50%;
+    float: left;
+    text-align: left;
+}
+
+.footer-div-right-p{
+    color:darkblue;
+    font:10px;
+}
+
+.footer-div-left-p{
+    color:darkblue;
+    font:10px;
+}
+
+.footer-img{
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
