@@ -5,10 +5,10 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Shop(models.Model):
     NAME_MAX_LENGTH = 128
-
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    
     name = models.CharField(max_length=NAME_MAX_LENGTH, unique=True)
     location = models.CharField(max_length=128)
+    picture = models.ImageField(upload_to='shop_images', blank=True)
     slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):

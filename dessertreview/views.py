@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from dessertreview.forms import UserForm, UserProfileForm
+from dessertreview.forms import UserForm, UserProfileForm, DessertForm, ShopForm, CategoryForm
 from django.contrib.auth import logout, login, authenticate
 from django.http import HttpResponse
 from django.urls import reverse
@@ -152,3 +152,42 @@ def shops(request):
     shops = Shop.objects.all()
     context_dict['shops'] = shops
     return render(request, 'dessertreview/shops.html', context=context_dict)
+
+def add_dessert(request):
+    form = DessertForm()
+
+    if request.method == 'POST':
+        form = DessertForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect(reverse('dessertreview:home'))
+        else:
+            print(form.errors)
+
+    return render(request, 'dessertreview/add_dessert.html', {'form': form})
+
+def add_shop(request):
+    form = ShopForm()
+
+    if request.method == 'POST':
+        form = ShopForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect(reverse('dessertreview:home'))
+        else:
+            print(form.errors)
+
+    return render(request, 'dessertreview/add_shop.html', {'form': form})
+
+def add_category(request):
+    form = CategoryForm()
+
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect(reverse('dessertreview:home'))
+        else:
+            print(form.errors)
+
+    return render(request, 'dessertreview/add_category.html', {'form': form})

@@ -17,4 +17,7 @@ urlpatterns = [
     path('shops/', views.shops, name='shops'),
     path('shop/<slug:shop_slug>/', views.show_shop, name='show_shop'),
     path('dessert/<slug:dessert_slug>/', views.show_dessert, name='show_dessert'),
+    path('add_dessert/', views.add_dessert, name='add_dessert'),
+    path('add_shop/', views.add_shop, name='add_shop'),
+    path('add_category/', views.add_category, name='add_category'),
 ]

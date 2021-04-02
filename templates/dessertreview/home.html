@@ -21,7 +21,7 @@
             {% if categories %}
                 <ul>
                 {% for category in categories %}
-                    <li><a href="{% url 'dessertreview:show_shop' category.slug %}">{{ category.name }}</a></li>
+                    <li><a href="{% url 'dessertreview:show_category' category.slug %}">{{ category.name }}</a></li>
                 {% endfor %}
                 </ul>
             {% else %}

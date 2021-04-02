@@ -13,7 +13,9 @@
     {% if shop %}
         <h1>{{ shop.name }}</h1>
         <p>{{shop.location}}</p>
+        <img src="/media/{{shop.picture}}" alt="image of {{shop.name}}" width="300" height="300"/>
         <h2>Menu</h2>
+        <a href="{% url 'dessertreview:add_dessert' %}">Add Dessert</a><br>
         {% if desserts %}
             {% regroup desserts by category as dessert_list %}
             <ul>
