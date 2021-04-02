@@ -5,26 +5,67 @@
     theDessertReview
 {% endblock %}
 
-{% block head_block %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-{% endblock %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 {% block body_block %}
+
 <div class="v153_332">
     <span class="v153_333 text-center">
         <h1> Welcome to theDessertReview</h1>
-    </span><br /><br />
-<div class="container">
-    <div class="text-right">
-        <button type="button" class="btn btn-primary btn-lg">For Business</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg">Write a review</button>
+    </span>
+    <br />
 
+    <div id="border">
+        <div class="float-left">
+            <a href= "{% url 'dessertreview:categories' %}" >Categories</a>
+            {% if categories %}
+                <ul>
+                {% for category in categories %}
+                    <li>{{ category.name }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>placeholder</p>
+            {% endif %}
+            <br />
+            <a href= "{% url 'dessertreview:shops' %}" >Shops</a>
+            {% if shops %}
+                <ul>
+                {% for shop in shops %}
+                    <li>{{ shop.name }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>placeholder</p>
+            {% endif %}
+            <br />
+            
+        </div>
+        <div class="float-right">
+            Grid Column 2
+            <div class="container">
+                <div class="content">
+                    <button type="button" class="btn btn-primary btn-lg">For Business</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg">Write a review</button>
+                </div>
+            </div>
+        </div>
 
     </div>
-    <div class="mapouter"><div class="gmap_canvas"><iframe width="393" height="282" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.online-timer.net"></a><br><style>.mapouter{position: absolute;;text-align:right;height:282px;width:393px;}</style><a href="https://www.embedgooglemap.net">how to add google maps to your website</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:282px;width:393px;}</style></div></div>
-
-
-
-    <section id="photos"></section>
+    
+    <br />
+    
+    
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe width="393" height="282" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+            </iframe>
+            <a href="https://www.online-timer.net"></a>
+            <br>
+            
+        </div>
+    </div>
 
 {% endblock %}
+    
+<!--credit to "https://www.embedgooglemap.net"-->

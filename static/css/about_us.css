@@ -21,7 +21,7 @@
   padding: 50px;
   text-align: center;
   background-color: #474e5d;
-  color: white;
+  color: floralwhite;
 }
 
 .container {
@@ -35,7 +35,7 @@
 }
 
 .title {
-  color: grey;
+  color: azure;
 }
 
 .button {
@@ -44,14 +44,14 @@
   display: inline-block;
   padding: 8px;
   color: white;
-  background-color: #000;
+  background-color: darkslateblue;
   text-align: center;
   cursor: pointer;
   width: 100%;
 }
 
 .button:hover {
-  background-color: #555;
+  background-color: cornflowerblue;
 }
 
 @media screen and (max-width: 650px) {
@@ -60,3 +60,5 @@
     display: block;
   }
 }
+
+/* Credit to https://www.w3schools.com/howto/howto_css_about_page.asp */
