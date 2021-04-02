@@ -10,7 +10,12 @@ from dessertreview.models import Category, Dessert, Shop
 # Create your views here.
 
 def home(request):
-    return render(request, 'dessertreview/home.html')
+    context_dict = {}
+    categories = Category.objects.all()
+    shops = Shop.objects.all()
+    context_dict["categories"] = categories
+    context_dict["shops"] = shops
+    return render(request, 'dessertreview/home.html', context = context_dict)
     
 def about_us(request):
     return render(request, 'dessertreview/about_us.html')

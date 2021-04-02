@@ -13,6 +13,7 @@
     {% if shop %}
         <h1>{{ shop.name }}</h1>
         <p>{{shop.location}}</p>
+        <h2>Menu</h2>
         {% if desserts %}
             {% regroup desserts by category as dessert_list %}
             <ul>

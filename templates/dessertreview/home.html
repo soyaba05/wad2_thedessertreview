@@ -17,26 +17,26 @@
 
     <div id="border">
         <div class="float-left">
-            <a href= "{% url 'dessertreview:categories' %}" >Categories</a>
+            Categories
             {% if categories %}
                 <ul>
                 {% for category in categories %}
-                    <li>{{ category.name }}</li>
+                    <li><a href="{% url 'dessertreview:show_shop' category.slug %}">{{ category.name }}</a></li>
                 {% endfor %}
                 </ul>
             {% else %}
-                <p>placeholder</p>
+                <p>No categories found</p>
             {% endif %}
             <br />
-            <a href= "{% url 'dessertreview:shops' %}" >Shops</a>
+            Shops
             {% if shops %}
                 <ul>
                 {% for shop in shops %}
-                    <li>{{ shop.name }}</li>
+                    <li><a href="{% url 'dessertreview:show_shop' shop.slug %}">{{ shop.name }}</a></li>
                 {% endfor %}
                 </ul>
             {% else %}
-                <p>placeholder</p>
+                <p>No shops found</p>
             {% endif %}
             <br />
             
