@@ -24,10 +24,10 @@ body {
 }
 
 nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
 }
 
 nav ul {

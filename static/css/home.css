@@ -6,9 +6,9 @@
 }
 .float-right {
     width: 75%;
-    display: block;
     padding: 20px;
     text-align: center;
+    background-image: url("/static/images/Desserts.jpeg");
 }
 .content {
     text-align: center;
@@ -21,15 +21,7 @@
     margin-bottom: 10px;
     border-radius: 3px;
 }
-.mapouter{
-    position: static;
-    text-align:right;
-    height:282px;
-    width:393px;
-}
-.gmap_canvas {
-    overflow:hidden;
-    background:none!important;
-    height:282px;
-    width:393px;
+.style {
+    color: darkblue;
+    font-family: cursive;
 }
