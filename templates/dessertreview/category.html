@@ -16,7 +16,9 @@
         {% if desserts %}
             <ul>
                 {% for dessert in desserts %}
-                    <li><a href="{% url 'dessertreview:show_dessert' dessert.slug %}">{{ dessert.name }}</a></li>
+                    <li>
+                        <a href="{% url 'dessertreview:show_dessert' dessert.slug %}">{{ dessert.name }}</a>
+                    </li>
                 {% endfor %}
             </ul>
         {% else %}

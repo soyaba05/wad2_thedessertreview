@@ -21,7 +21,9 @@
             {% if categories %}
                 <ul>
                 {% for category in categories %}
-                    <li><a href="{% url 'dessertreview:show_category' category.slug %}">{{ category.name }}</a></li>
+                    <li>
+                        <a href="{% url 'dessertreview:show_category' category.slug %}">{{ category.name }}</a>
+                    </li>
                 {% endfor %}
                 </ul>
             {% else %}
@@ -32,7 +34,9 @@
             {% if shops %}
                 <ul>
                 {% for shop in shops %}
-                    <li><a href="{% url 'dessertreview:show_shop' shop.slug %}">{{ shop.name }}</a></li>
+                    <li>
+                        <a href="{% url 'dessertreview:show_shop' shop.slug %}">{{ shop.name }}</a>
+                    </li>
                 {% endfor %}
                 </ul>
             {% else %}
@@ -43,7 +47,9 @@
         </div>
         <div class="float-right">
             <img src="{% static 'images/homebg.jpeg'%}" class="float-right-background">
-            <p class="style">Welcome to theDessertReview, a place for dessert lovers to share their experience</p>
+            <p class="style">
+                Welcome to theDessertReview, a place for dessert lovers to share their experience
+            </p>
             <div class="container">
                 <div class="content">
                     <button type="button" class="btn btn-primary btn-lg">For Business</button>

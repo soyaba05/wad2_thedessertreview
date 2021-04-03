@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block head_block %}
-<head>
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
       rel="stylesheet"
@@ -15,8 +14,6 @@
     <div class="v153_332">
       <span class="v153_333 text-center">
     <title>My Reviews</title>
-  </head>
-
 {% endblock %}
 
 {% block body_class %}
@@ -25,21 +22,15 @@
 
 
 {% block body_block %}
-<div class="main px-5 mx-5 mb-5">
-    <h2 class="text-center my-4">My Reviews</h2>
-    <br>
+    <div class="main px-5 mx-5 mb-5">
+        <h2 class="text-center my-4">My Reviews</h2>
+        <br>
+        <div class="text-center">
+            <br/>
+            <img src="{% static 'images/Desserts.jpeg' %}" alt="Desserts" width="900" height="300" class="center">
+            <br/>
 
-	<div class="text-center">
-        <br/>
-        <img src="{% static 'images/Desserts.jpeg' %}" alt="Desserts" width="900" height="300" class="center">
-        <br/>
-        
-        <br />
+            <br />
+        </div>
     </div>
-
-
-
-    
-
-
 {% endblock %}

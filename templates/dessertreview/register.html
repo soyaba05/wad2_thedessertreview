@@ -7,75 +7,75 @@
 {% endblock %}
 
 {% block head_block %}
-<link
-href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
-rel="stylesheet"/>
-<link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet"/>
-<link href="./main.css" rel="stylesheet" />
-<!-- register in template -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-<link href="{% static 'css/buttons.css' %}" rel="stylesheet">
-<link href="{% static 'js/bootstrap.bundle.min.js' %}" rel="stylesheet">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <link
+    href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+    rel="stylesheet"/>
+    <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet"/>
+    <link href="./main.css" rel="stylesheet" />
+    <!-- register in template -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/buttons.css' %}" rel="stylesheet">
+    <link href="{% static 'js/bootstrap.bundle.min.js' %}" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 {% endblock %}
 
 {% block body_block %}
 <div class="main">
-	
-{% if registered %}
-<span class="v153_333 text-center">
+    {% if registered %}
+        <span class="v153_333 text-center">
+        <h1>Thank you for registering with theDessertReview!</h1>
+        <strong><h2>You can now login</h2>!</strong><br />
+        {% else %}
+        <div class="v153_332">
+            <span class="v153_333 text-center">
+                <h1>Become a part of the community!</h1>
+            </span>
+            <strong><h2>Register here</h2>!</strong><br />
 
-	<h1>Thank you for registering with theDessertReview!</h1>
-	<strong><h2>You can now login</h2>!</strong><br />
-{% else %}
-<div class="v153_332">
-    <span class="v153_333 text-center">
+            <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card card-signin my-5">
+                        <div class="card-body">
+                            <div class="v0_743">
+                                <div class="form-group" style="margin:auto" >	
+                                    <div class="v153_332">							
+                                        <form id="user_form" method="post" action="{% url 'dessertreview:register' %}" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <p class="required">
+                                                    {{ profile_form.first_name.errors }}
+                                                    <input class="form-control" id="first_name" name="first_name" type="text" placeholder="First Name" value="{{profile_form.first_name.value|default_if_none:""}}" />
+                                                    <span class="text-muted helptext">
+                                                        Required.
+                                                    </span>
+                                                </p>
+                                                <p class="required">
+                                                    {{ profile_form.last_name.errors }}
+                                                    <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Last Name" value="{{profile_form.last_name.value|default_if_none:""}}" />
+                                                    <span class="text-muted helptext">
+                                                        Required.
+                                                    </span>
+                                                </p>
+                                                <!-- Display each form -->
 
-	<h1>Become a part of the community!</h1>
+                                                {{ user_form.as_p }}
+                                                {{ profile_form.as_p }}
 
-	<strong><h2>Register here</h2>!</strong><br />
+                                                <!-- Provide a button to click to submit the form. -->
+                                                <input type="submit" name="submit" value="Register" />
+                                            </form>
 
-<div class="container">
-	<div class="row">
-		<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-			<div class="card card-signin my-5">
-				<div class="card-body">
-					<div class="v0_743">
-						<div class="form-group" style="margin:auto" >	
-							<div class="v153_332">							
-		<form id="user_form" method="post" action="{% url 'dessertreview:register' %}" enctype="multipart/form-data">
-			{% csrf_token %}
-			<p class="required">
-				{{ profile_form.first_name.errors }}
-				<input class="form-control" id="first_name" name="first_name" type="text" placeholder="First Name" value="{{profile_form.first_name.value|default_if_none:""}}" />
-				<span class="text-muted helptext">
-					Required.
-				</span>
-			</p>
-			<p class="required">
-				{{ profile_form.last_name.errors }}
-				<input class="form-control" id="last_name" name="last_name" type="text" placeholder="Last Name" value="{{profile_form.last_name.value|default_if_none:""}}" />
-				<span class="text-muted helptext">
-					Required.
-				</span>
-			</p>
-			
-
-			
-			
-			<!-- Display each form -->
-			
-			{{ user_form.as_p }}
-			{{ profile_form.as_p }}
-			
-			<!-- Provide a button to click to submit the form. -->
-			<input type="submit" name="submit" value="Register" />
-		</form>
-
-		<p>
-			Already got an Account?
-			<a href="{% url 'dessertreview:login' %}">Login Here</a>
-		</p>
-	</div>
-	{% endif %}
+                                            <p>
+                                                Already got an Account?
+                                                <a href="{% url 'dessertreview:login' %}">Login Here</a>
+                                            </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}
