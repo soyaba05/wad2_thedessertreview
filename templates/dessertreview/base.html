@@ -15,7 +15,8 @@
 
         <!--Icon Library-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        {% block head_block %}
+        {% endblock %}
         <title>
             {% block title_block %}
                 theDessertReview
@@ -89,7 +90,7 @@
         <footer>
             <div class="social">
                 <a href="#">
-                    <i class="fa fa-instagram" style="color: #bc2a8d; background-color: ;"></i>
+                    <i class="fa fa-instagram" style="color: #bc2a8d;"></i>
                 </a>
                 <a href="#">
                     <i class="fa fa-snapchat" style="color: #030303;"></i></a>

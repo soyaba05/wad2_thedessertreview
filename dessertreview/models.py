@@ -56,6 +56,9 @@ class Dessert(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        ordering = ["category"]
 
 class UserProfile(models.Model):
     # This line is required. Links UserProfile to a User model instance.

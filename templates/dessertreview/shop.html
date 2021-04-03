@@ -8,27 +8,59 @@
         Unknown Shop
     {% endif %}
 {% endblock %}
+{% block head_block %}
+<script src="{% static 'js/maps.js' %}"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script>
+    var geocoder, map;
 
+    function codeAddress() {
+        geocoder = new google.maps.Geocoder();
+        geocoder.geocode({
+            'address': "G129ER"
+        }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                var myOptions = {
+                    zoom: 8,
+                    center: results[0].geometry.location,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+                map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+            }
+        });
+    }
+</script>
+{% endblock %}
 {% block body_block %}
     {% if shop %}
+    {{shop.postcode}}
         <h1>{{ shop.name }}</h1>
-        <p>{{shop.location}}</p>
+        <div id="map"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoslTzByNyKznG7W21m-hEePC15J5wgGc&callback=codeAddress&libraries=&v=weekly" async></script>
         <img src="/media/{{shop.picture}}" alt="image of {{shop.name}}" width="300" height="300"/>
         <h2>Menu</h2>
         <a href="{% url 'dessertreview:add_dessert' %}">Add Dessert</a><br>
         {% if desserts %}
             {% regroup desserts by category as dessert_list %}
-            <ul>
                 {% for category in dessert_list %}
-                    <li><h3>{{ category.grouper }}</h3>
-                        <ul>
-                        {% for dessert in category.list %}
-                            <li><a href="{% url 'dessertreview:show_dessert' dessert.slug %}">{{ dessert.name }}</a></li>
+                    <h3>{{ category.grouper }}</h3>
+                    <div class="d-flex flex-wrap img-gallery">
+                        {% for dessert in category.list %} 
+                                <a href="{% url 'dessertreview:show_dessert' dessert.slug %}">
+                                    <figure>
+                                        <img class="img-fluid" src="/media/{{dessert.picture}}">
+                                        <figcaption>{{dessert.name}}</figcaption>
+                                    </figure>
+                                </a>
                         {% endfor %}
-                        </ul>
-                    </li>
+                    </div>
                 {% endfor %}
-            </ul>
+            
         {% else %}
             <strong>This shop has no desserts.</strong>
         {% endif %}
