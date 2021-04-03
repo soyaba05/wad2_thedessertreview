@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block body_block %}
-        <h1>Add a Dessert</h1>
+    <h1>Add a Dessert</h1>
         <div>
             <form id="dessert_form" method="post" action="{% url 'dessertreview:add_dessert' %}" enctype="multipart/form-data".>
                 {% csrf_token %}
@@ -22,5 +22,4 @@
                 <input type="submit" name="submit" value="Add Dessert" />
             </form>
         </div>
-    </body>
 {% endblock %}

@@ -1,25 +1,25 @@
 {% extends 'dessertreview/base.html' %}
 {% load staticfiles %}
 
-<html>
+{% block title_block %}
+    Write a review
+{% endblock %}
 
-    <head>
-        <title>
-            Dessert Review - 
-            {% block title_block %}
-				Write a Review
-			{% endblock %}
-        </title>
-    </head>
-    
-    <body>
-        <h1>Write a Review</h1>
+{% block body_block %}
+    <h1>Write a Review</h1>
         <div>
-            {% block body_block %}
-                <a href="/dessertreview/">Home</a>
-			{% endblock %}
+            <form id="review_form" method="post" action="{% url 'dessertreview:write_a_review' %}" enctype="multipart/form-data".>
+                {% csrf_token %}
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+                {% for field in form.visible_fields %}
+                    {{ field.errors }}
+                    {{ field.help_text }}
+                    {{ field.label }}<br>
+                    {{ field }}<br>
+                {% endfor %}
+                <input type="submit" name="submit" value="Add Review" />
+            </form>
         </div>
-        
-        <hr />
-    </body>
-</html>
+{% endblock %}

@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
-from dessertreview.forms import UserForm, UserProfileForm, DessertForm, ShopForm, CategoryForm
+from dessertreview.forms import UserForm, UserProfileForm, DessertForm, ShopForm, CategoryForm, ReviewForm
 from django.contrib.auth import logout, login, authenticate
 from django.http import HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from dessertreview.models import Category, Dessert, Shop
+from dessertreview.models import Category, Dessert, Shop, Review
 
 
 # Create your views here.
@@ -19,9 +19,6 @@ def home(request):
     
 def about_us(request):
     return render(request, 'dessertreview/about_us.html')
-
-def write_a_review(request):
-    return render(request, 'dessertreview/write_a_review.html')             
 
 def register(request):
     registered=False
@@ -115,6 +112,17 @@ def show_category(request, category_name_slug):
     # Go render the response and return it to the client.
     return render(request, 'dessertreview/category.html', context=context_dict)
 
+def show_review(request, review_slug):
+    contex_dict = {}
+    try:
+        review = Review.objects.get(slug=dessert_slug)
+        context_dict['review'] = review
+
+    except Review.DoesNotExist:
+        context_dict['review'] = None
+
+    return render(request, 'dessertreview/my_reviews.html', context=context_dict)
+
 def show_dessert(request, dessert_slug):
     context_dict = {}
 
@@ -152,6 +160,19 @@ def shops(request):
     shops = Shop.objects.all()
     context_dict['shops'] = shops
     return render(request, 'dessertreview/shops.html', context=context_dict)
+
+def write_a_review(request):
+    form = ReviewForm()
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect(reverse('dessertreview:home'))
+        else:
+            print(form.errors)
+
+    return render(request, 'dessertreview/write_a_review.html', {'form': form})             
 
 def add_dessert(request):
     form = DessertForm()
