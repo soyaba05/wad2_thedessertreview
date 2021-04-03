@@ -24,3 +24,11 @@
       width: 100%;
     }
   }
+
+  .category {
+    display:inline-block;
+    border-style: solid;
+    width: 30%;
+    height: 200px;
+    margin: 2px;
+  }
