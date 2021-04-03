@@ -42,9 +42,9 @@ rel="stylesheet"
 
             
         
-
+    {% if request.user.is_staff %}
     <a class="btn btn-primary" href="{% url 'dessertreview:add_shop' %}" role="button">Add Shop</a>
-
+    {% endif %}
 </div>      
     
 {% endblock %}

@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block body_block %}
+{% if request.user.is_staff %}
 <div class="container">
     <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -22,7 +23,6 @@
     
     <div>
             
-      
             {% for field in form.visible_fields %}
                 {{ field.errors }}
                 {{ field.help_text }}
@@ -36,4 +36,7 @@
         </div>
     </div>
     </div>
+{% else %}
+<h1 class="text-center my-4">This page is reserved for staff.</h2>
+{% endif %}
 {% endblock %}

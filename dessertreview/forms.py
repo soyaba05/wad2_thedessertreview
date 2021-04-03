@@ -59,9 +59,10 @@ class DessertForm(forms.ModelForm):
 
 class ShopForm(forms.ModelForm):
     name = forms.CharField(max_length=128, label='Shop Name: ')
-    location = forms.CharField(max_length=8, label='Postcode: ')
+    lat = forms.FloatField(label='Latitude: ')
+    lng = forms.FloatField(label='Longitude: ')
     picture = forms.ImageField(label='Image: ')
 
     class Meta:
         model = Shop
-        fields = ('name', 'location', 'picture')
+        fields = ('name', 'lat', 'lng', 'picture')

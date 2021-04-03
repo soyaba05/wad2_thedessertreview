@@ -9,31 +9,22 @@
     {% endif %}
 {% endblock %}
 {% block head_block %}
-<script src="{% static 'js/maps.js' %}"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script>
-    var geocoder, map;
+    let map;
 
-    function codeAddress() {
-        geocoder = new google.maps.Geocoder();
-        geocoder.geocode({
-            'address': "G129ER"
-        }, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                var myOptions = {
-                    zoom: 8,
-                    center: results[0].geometry.location,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                }
-                map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
-                });
-            }
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: {{ shop.lat }}, lng: {{ shop.lng }}},
+            zoom: 15,
         });
-    }
+        new google.maps.Marker({
+            position: { lat: {{ shop.lat }}, lng: {{ shop.lng }}},
+            map,
+            title: "{{shop.name}}",
+        });
+}
+
 </script>
 {% endblock %}
 {% block body_block %}
@@ -41,10 +32,9 @@
     {{shop.postcode}}
         <h1>{{ shop.name }}</h1>
         <div id="map"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoslTzByNyKznG7W21m-hEePC15J5wgGc&callback=codeAddress&libraries=&v=weekly" async></script>
-        <img src="/media/{{shop.picture}}" alt="image of {{shop.name}}" width="300" height="300"/>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoslTzByNyKznG7W21m-hEePC15J5wgGc&callback=initMap&libraries=&v=weekly" async></script>
         <h2>Menu</h2>
-        <a href="{% url 'dessertreview:add_dessert' %}">Add Dessert</a><br>
+        <a class="btn btn-primary" href="{% url 'dessertreview:add_dessert' %}">Add Dessert</a><br>
         {% if desserts %}
             {% regroup desserts by category as dessert_list %}
                 {% for category in dessert_list %}
