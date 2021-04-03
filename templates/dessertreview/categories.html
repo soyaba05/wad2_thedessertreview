@@ -5,9 +5,19 @@
     Categories
 {% endblock %}
 
+
 {% block body_block %}
-    <h1> Categories </h1>
-    <a href="{% url 'dessertreview:add_category' %}">Add Category</a><br>
+    <div class="v153_332">
+        <span class="v153_333 text-center">
+            <h1> Categories </h1></span><br /><br /><br />
+        
+            
+    </div>
+
+    <div class="container" style="text-align: left;">
+    <a class="btn btn-primary" href="{% url 'dessertreview:add_category' %}" role="button">Add Category</a>
+
+   <br>
     <ul>
         {% if categories %}
             {% for c in categories %}
@@ -19,4 +29,5 @@
             <li><strong>There are no categories present.</strong></li>
         {% endif %}
     </ul>
+</div>
 {% endblock %}

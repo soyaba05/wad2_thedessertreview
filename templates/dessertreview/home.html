@@ -5,7 +5,13 @@
     theDessertReview
 {% endblock %}
 
+{% block head_block %}
+
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/buttons.css' %}" rel="stylesheet">
+<link href="{% static 'js/bootstrap.bundle.min.js' %}" rel="stylesheet">
+{% endblock %}
 
 {% block body_block %}
 
@@ -14,15 +20,26 @@
         <h1> Welcome to theDessertReview</h1>
     </span>
     <br />
+</div>
+<main role="main">
+
+    <div class="album p-0 m-0 py-5 pr-5 mr-5" style="padding-right: 15rem!important">
+        <div class="container">
+            <table>
+                <tbody>
+                <tr>
+                    <div>
+                        <h1 class="card-section p-1 align-middle" style="display:inline">Find Your Desserts!</h1>
 
     <div id="border">
         <div class="float-left">
+
             Categories
             {% if categories %}
                 <ul>
                 {% for category in categories %}
                     <li>
-                        <a href="{% url 'dessertreview:show_category' category.slug %}">{{ category.name }}</a>
+                        <a href="{% url 'dessertreview:show_category' category.slug %} style=color: #ffc107;">{{ category.name }}</a>
                     </li>
                 {% endfor %}
                 </ul>
@@ -53,7 +70,7 @@
             <div class="container">
                 <div class="content">
                     <button type="button" class="btn btn-primary btn-lg">For Business</button>
-                    <button type="button" class="btn btn-outline-secondary btn-lg" onclick="{% url 'dessertreview:login' %}">Write a review</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg">Write a review</button>
                 </div>
             </div>
         </div>
