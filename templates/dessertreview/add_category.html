@@ -6,7 +6,13 @@
 {% endblock %}
 
 {% block body_block %}
-    <h1>Add a Category</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Add a Category</h5>
+  
     <div>
         <form id="category_form" method="post" action="{% url 'dessertreview:add_category' %}">
             {% csrf_token %}
@@ -21,5 +27,9 @@
             {% endfor %}
             <input type="submit" name="submit" value="Add Category" />
         </form>
+    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
