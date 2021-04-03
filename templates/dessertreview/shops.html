@@ -6,8 +6,10 @@
 {% endblock %}
 
 {% block body_block %}
-    <h1> Dessert Shops </h1>
-    <a href="{% url 'dessertreview:add_shop' %}">Add Shop</a>
+<div class="main px-5 mx-5 mb-5">
+    <h2 class="text-center my-4">Dessert Shops</h2>
+    <a class="btn btn-primary" href="{% url 'dessertreview:add_shop' %}" role="button">Add Shop</a>
+
     <ul>
         {% if shops %}
             {% for s in shops %}

@@ -27,30 +27,29 @@
         <br>
         <div class="text-center">
             <br/>
-            <img src="{% static 'images/Desserts.jpeg' %}" alt="Desserts" width="900" height="300" class="center">
+            <img src="{% static 'images/Desserts.jpeg' %}" alt="Desserts" width="950" height="300" class="center">
             <br/>
-            {% if reviews %}
-                {% regroup reviews by user as user_reviews %}
-                    {% for user in user_reviews %}
-                        <h3>{{ user.grouper }}</h3>
-                        <div class="d-flex flex-wrap img-gallery">
-                        {% for review in user.list %} 
-                                <a href="{% url 'dessertreview:show_review' review.slug %}">
-                                    <figure>
-                                        <figcaption>{{review.name}}</figcaption>
-                                    </figure>
-                                </a>
-                        {% endfor %}
-                    </div>
-                {% endfor %}
-            
-                {% else %}
-                <strong>You have not made any reviews.</strong>
-            {% endif %}
-        {% else %}
-            Username does not exist.
-    {% endif %}
+
             <br />
+            <div class="d flex justtify-content-start">
+              <button
+                class="btn btn-primary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false"
+              >
+              My Reviews
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+            
+
+            
         </div>
     </div>
 {% endblock %}
