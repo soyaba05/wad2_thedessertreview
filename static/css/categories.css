@@ -28,7 +28,30 @@
   .category {
     display:inline-block;
     border-style: solid;
-    width: 30%;
-    height: 200px;
+    width: 10%;
+    height: 40px;
     margin: 2px;
   }
+
+  .inline-block {
+    display: inline-block;
+ }  
+
+  .imginside{
+    display:inline-block;
+    width:10px;
+    }
+ 
+    
+ .column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}   
+
