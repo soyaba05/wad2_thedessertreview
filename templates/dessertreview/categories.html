@@ -17,14 +17,16 @@
     <div class="container" style="text-align: left;">
     <a class="btn btn-primary" href="{% url 'dessertreview:add_category' %}" role="button">Add Category</a>
 
-   <br>
+   <br /><br /><br />
     <ul>
         {% if categories %}
+        <ul class="list-group">
             {% for c in categories %}
-                <li>
-                    <a href="{% url 'dessertreview:show_category' c.slug %}">{{ c.name }}</a>
+                <li class="pl-3 pr-3 pb-2"> 
+                    <a class="bugged" href="{% url 'dessertreview:show_category' c.slug %}">{{ c.name }}</a>
                 </li>
             {% endfor %}
+        </ul>
         {% else %}
             <li><strong>There are no categories present.</strong></li>
         {% endif %}
