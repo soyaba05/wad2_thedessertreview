@@ -2,7 +2,10 @@
   box-sizing: border-box;
 }
 body {
-  font-size: 14px;
+    font-size: 14px;
+    background: #007bff;
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+
 }
 .v0_725 {
   width: 100%;
