@@ -10,7 +10,7 @@
     background-size: auto;
     position: relative;
     overflow: hidden;
-    height:auto;
+    height:200px;
     text-align: center;
     object-fit: cover;
 }
@@ -20,7 +20,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    height:inherit; 
+    height:200px; 
 }
 .content {
     position: relative;
