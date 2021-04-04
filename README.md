@@ -1,11 +1,12 @@
-#theDessertreview
+
+<h2>theDessertreview<h2>
 
 ---
-###Using this Repository
+<h3>Using this Repository</h3>
 
 This repository uses a virtual environment with specific packages, therefore it is essential to activate the environment and install packages.
 
-####Development
+<h5>Development</h5>
 
 1. Make virtual environment
 `$ conda create -n dessertreview python=3.8.0` 
@@ -13,7 +14,7 @@ This repository uses a virtual environment with specific packages, therefore it 
 2. Activate environment
 `conda  activate dessertreview`
 >
-####Running the application
+<h5>Running the application</h5>
 >
 It is important to migrate before running the app. This is done by:
 >
@@ -29,7 +30,7 @@ Now run the application,
 >
 Direct to this browser: http://127.0.0.1:8000/
 >
-###Technologies Used
+<h2>Technologies Used</h2>
 
 * [Django 3.0.3]( https://www.djangoproject.com/)
 >
@@ -52,7 +53,7 @@ Direct to this browser: http://127.0.0.1:8000/
 ---
 
 >
-####Team Members
+<h5>Team Members</h5>
 >
 University of Glasgow-Lab 13 (Team D)
 
