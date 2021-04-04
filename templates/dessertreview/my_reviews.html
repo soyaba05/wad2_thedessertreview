@@ -12,8 +12,8 @@
     />
     <link href="./myreview.css" rel="stylesheet" />
     <div class="v153_332">
-      <span class="v153_333 text-center">
-    <title>My Reviews</title>
+      
+    <link rel="stylesheet" href="{% static 'css/reviews.css' %}">
 {% endblock %}
 
 {% block body_class %}
@@ -22,34 +22,49 @@
 
 
 {% block body_block %}
-    <div class="main px-5 mx-5 mb-5">
-        <h2 class="text-center my-4">My Reviews</h2>
-        <br>
-        <div class="text-center">
-            <br/>
-            <img src="{% static 'images/Desserts.jpeg' %}" alt="Desserts" width="950" height="300" class="center">
-            <br/>
-
-            <br />
-            <div class="d flex justtify-content-start">
-              <button
-                class="btn btn-primary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-              My Reviews
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </div>
-            
-
-            
-        </div>
+<div class="main px-5 mx-5 mb-5">
+  <span class="v153_333 text-center">
+    <h2 class="text-center my-4">My Reviews</h2><br>
+    <div class="text-center">
+          <img src="{% static 'images/Desserts.jpeg' %}" alt="Desserts" width="950" height="300" class="center"><br>     
     </div>
+    </span>
+</div> 
+  
+
+
+    <div class="container">
+      <div class="jumbotron p-4">
+          <div class="container">
+              {% if reviews %}
+                  {% for review in reviews %}
+                  <h5>Review of {{review.dessert}}</h5>
+                  <div class="reviews-members pt-4 pb-4">
+                      <div class="media">
+                          <a href="#"><img alt="Generic placeholder image" src="http://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-pill"></a>
+                          <div class="media-body">
+                              <div class="reviews-members-header">
+                                  <span class="star-rating float-right">
+                                  <a href="#"><i class="icofont-ui-rating active"></i></a>
+                                  <a href="#"><i class="icofont-ui-rating active"></i></a>
+                                  <a href="#"><i class="icofont-ui-rating active"></i></a>
+                                  <a href="#"><i class="icofont-ui-rating active"></i></a>
+                                  <a href="#"><i class="icofont-ui-rating"></i></a>
+                                  </span>
+                                  <h6 class="mb-1"><a class="text-black" href="#">{{ review.user }}</a></h6>
+                                  <p class="text-gray">{{ review.date }}</p>
+                              </div>
+                              <div class="reviews-members-body">
+                                  <p>{{ review.text }}</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+              {% else %}
+                  <strong>You have written no reviews.</strong>
+              {% endif %}
+          </div>
+      </div>
+  </div>
 {% endblock %}

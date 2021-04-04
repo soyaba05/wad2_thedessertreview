@@ -80,7 +80,10 @@ def my_account(request):
 
 @login_required
 def my_reviews(request):
-    return render(request, 'dessertreview/my_reviews.html')
+    context_dict = {}
+    reviews = Review.objects.filter(user=request.user)
+    context_dict["reviews"] = reviews
+    return render(request, 'dessertreview/my_reviews.html', context = context_dict)
 
 def show_category(request, category_name_slug):
     # Create a context dictionary which we can pass
