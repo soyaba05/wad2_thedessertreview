@@ -19,8 +19,9 @@
     <img src="{% static 'images/cake2.jpg' %}" alt="Desserts" width="1140" height="400" class="center">
 </div>
     <div class="container" style="text-align: left;"><br /><br />
+        {% if request.user.is_staff %}
     <a class="btn btn-primary" href="{% url 'dessertreview:add_category' %}" role="button">Add Category</a>
-
+    {% endif %}
    <br /><br /><br />
    
         {% if categories %}

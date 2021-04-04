@@ -44,7 +44,9 @@
                 <br /><br />
             <h2>Menu</h2>
             <br />
+            {% if request.user.is_staff %}
             <a class="btn btn-primary" href="{% url 'dessertreview:add_dessert' %}">Add Dessert</a><br>
+            {% endif %}
             {% if desserts %}<br />
                 {% regroup desserts by category as dessert_list %}
                     {% for category in dessert_list %}
