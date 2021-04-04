@@ -15,12 +15,15 @@ This repository uses a virtual environment with specific packages, therefore it 
 `conda  activate dessertreview`
 >
 <h5>Running the application</h5>
+
 >
+
 It is important to migrate before running the app. This is done by:
 >
 ` $ python manage.py makemigrations` 
 >
-**Before running the app, it is recommended that you run the population script.**
+<h5>Before running the app, it is recommended that you run the population script.</h5>
+
 >
 `$ python populate_dessertreview.py`
 >
@@ -54,6 +57,7 @@ Direct to this browser: http://127.0.0.1:8000/
 
 >
 <h5>Team Members</h5>
+
 >
 University of Glasgow-Lab 13 (Team D)
 
