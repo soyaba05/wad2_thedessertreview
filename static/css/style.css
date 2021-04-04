@@ -274,3 +274,8 @@ figure figcaption {
 #map {
   height: 300px;
 }
+
+#id_text {
+  width: 400px;
+  height: 200px;
+}
