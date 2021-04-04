@@ -35,7 +35,7 @@ class CategoryForm(forms.ModelForm):
         fields = ('name',)
         
 class ReviewForm(forms.ModelForm):
-    dessert = forms.ModelChoiceField(queryset=Dessert.objects.all(), label='Dessert: ')
+    dessert = forms.ModelChoiceField(queryset=Dessert.objects.filter(), label='Dessert: ')
     name = forms.CharField(max_length=128, label='Title: ')
     text = forms.CharField(max_length=Dessert.TITLE_MAX_LENGTH, label='Review: ')
 

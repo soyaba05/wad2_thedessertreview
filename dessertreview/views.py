@@ -168,12 +168,13 @@ def write_a_review(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
-            print(form)
-            form.save(commit=True)
+            review_item = form.save(commit=False)
+            review_item.user = request.user
+            review_item.save()
             return redirect(reverse('dessertreview:home'))
         else:
             print(form.errors)
-
+            
     return render(request, 'dessertreview/write_a_review.html', {'form': form})             
 
 def add_dessert(request):
