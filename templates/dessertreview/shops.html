@@ -13,9 +13,6 @@ rel="stylesheet"
 <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet"/>
 <link href="./main.css" rel="stylesheet" />
 <link href="{% static 'css/buttons.css' %}" rel="stylesheet">
-
-
-
 {% endblock %}
 
 
@@ -25,35 +22,41 @@ rel="stylesheet"
 
 {% block body_block %}
 <div class="main px-5 mx-5 mb-5">
-    <h2 class="text-center my-4">Dessert Shops</h2>
+    <div class="container text-left">
+        <div class="jumbotron p-4">
+            <div class="container">
+                <h2 class="text-center my-4">Dessert Shops</h2>
 
-    <span class="v153_334 text-center">
-        <h5>Find your favourite dessert shops here at one place!</h5></span>
+                <span class="v153_334 text-center">
+                    <h5>Find your favourite dessert shops here at one place!</h5></span>
 
-        <div class="v0_528">
-                <span class="v0_527">{{ s.name }}
-                    <a class="btn btn-primary" href="{% url 'dessertreview:add_shop' %}" role="button">Add Shop</a>
-
-                </span>
-                <ul>
-                    {% if shops %}
-                        {% for s in shops %}
-                            <li>
-                                <a href="{% url 'dessertreview:show_shop' s.slug %}">{{ s.name }}</a>
-                            </li>
-                       
-                        {% endfor %}
-                    </ul>
-                    {% else %}
-                        <li><strong>There are no shops present.</strong></li>
-                    {% endif %}
-                
-
-            
-        
-    {% if request.user.is_staff %}
-    {% endif %}
+                    <div class="v0_528">
+                            <span class="v0_527">
+                                {{ s.name }}
+                                {% if request.user.is_staff %}
+                                <center><a class="btn btn-primary" href="{% url 'dessertreview:add_shop' %}" role="button">Add Shop</a></center>
+                                {% endif %}
+                            </span>
+                            <ul>
+                                {% if shops %}
+                                <div class="d-flex flex-wrap img-gallery">
+                                    {% for s in shops %}
+                                    <a href="{% url 'dessertreview:show_shop' s.slug %}">
+                                        <figure>
+                                            <img class="img-fluid" src="/media/{{s.picture}}">
+                                            <figcaption>{{s.name}}</figcaption>
+                                        </figure>
+                                    </a>
+                                
+                                    {% endfor %}
+                                </div>
+                                </ul>
+                                {% else %}
+                                    <li><strong>There are no shops present.</strong></li>
+                                {% endif %}
+                    </div>
+            </div>
         </div>
-     
-    
+    </div>
+</div>
 {% endblock %}
