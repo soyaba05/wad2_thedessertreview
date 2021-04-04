@@ -35,15 +35,13 @@ class CategoryForm(forms.ModelForm):
         fields = ('name',)
         
 class ReviewForm(forms.ModelForm):
-    shop = forms.ModelChoiceField(queryset=Shop.objects.all(), label='Shop: ')
-    dessert = forms.CharField(max_length=128, label='Dessert Name: ')
+    dessert = forms.ModelChoiceField(queryset=Dessert.objects.all(), label='Dessert: ')
     name = forms.CharField(max_length=128, label='Title: ')
-    description = forms.CharField(max_length=Dessert.TITLE_MAX_LENGTH, label='Review: ')
-    category = forms.ModelChoiceField(queryset=Category.objects.all(), label='Category: ')
+    text = forms.CharField(max_length=Dessert.TITLE_MAX_LENGTH, label='Review: ')
 
     class Meta:
         model = Review
-        fields = ('shop', 'dessert', 'name', 'description', 'category')
+        fields = ('dessert', 'name', 'text')
 
 
 class DessertForm(forms.ModelForm):

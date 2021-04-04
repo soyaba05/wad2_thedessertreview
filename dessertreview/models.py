@@ -47,8 +47,6 @@ class Dessert(models.Model):
     description = models.CharField(max_length=200)
     picture = models.ImageField(upload_to='dessert_images', blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    views = models.IntegerField(default=0)
-    likes = models.IntegerField(default=0)
     slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):
@@ -76,7 +74,7 @@ class Review(models.Model):
 
     dessert = models.ForeignKey(Dessert, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField()
+    date = models.DateField(auto_now=True)
     text = models.CharField(max_length=250)
 
     def __str__(self):

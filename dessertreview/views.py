@@ -128,8 +128,9 @@ def show_dessert(request, dessert_slug):
 
     try:
         dessert = Dessert.objects.get(slug=dessert_slug)
+        reviews = Review.objects.filter(dessert=dessert)
         context_dict['dessert'] = dessert
-
+        context_dict['reviews'] = reviews
     except Dessert.DoesNotExist:
         context_dict['dessert'] = None
 
@@ -165,8 +166,9 @@ def write_a_review(request):
     form = ReviewForm()
 
     if request.method == 'POST':
-        form = ReviewForm(request.POST, request.FILES)
+        form = ReviewForm(request.POST)
         if form.is_valid():
+            print(form)
             form.save(commit=True)
             return redirect(reverse('dessertreview:home'))
         else:

@@ -9,23 +9,59 @@
     {% endif %}
 {% endblock %}
 
+{% block head_block %}
+<link rel="stylesheet" href="{% static 'css/dessert.css' %}">
+{% endblock %}
+
 {% block body_block %}
 <div class="container text-center">
     <div class="jumbotron p-4">
         <div class="container">
-    {% if dessert %}
-        <h1>{{ dessert.name }}</h1>
-        <p>{{dessert.description}}</p>
-        <p>
-            Served at <a href="{% url 'dessertreview:show_shop' dessert.shop.slug %}">{{dessert.shop}}</a>
-        </p>
-        <img src="/media/{{dessert.picture}}" alt="image of {{dessert.name}}" width="300" height="300"/>
-        
-    {% else %}
-        The specified dessert does not exist.
-   
-    {% endif %}
+        {% if dessert %}
+            <h1>{{ dessert.name }}</h1>
+            <p>{{dessert.description}}</p>
+            <p>
+                Served at <a href="{% url 'dessertreview:show_shop' dessert.shop.slug %}">{{dessert.shop}}</a>
+            </p>
+            <img src="/media/{{dessert.picture}}" alt="image of {{dessert.name}}" width="300" height="300"/>
+            
+        {% else %}
+            The specified dessert does not exist.
+    
+        {% endif %}
+        </div>
+    </div>
+</div>  
+
+<div class="container text-center">
+    <div class="jumbotron p-4">
+        <div class="container">
+            <p><h2>Reviews</h2></p>
+            <a class="btn btn-primary" href="{% url 'dessertreview:write_a_review' %}">Write a Review</a><br>
+            {% for review in reviews %}
+            <div class="reviews-members pt-4 pb-4">
+                <div class="media">
+                    <a href="#"><img alt="Generic placeholder image" src="http://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-pill"></a>
+                    <div class="media-body">
+                        <div class="reviews-members-header">
+                            <span class="star-rating float-right">
+                            <a href="#"><i class="icofont-ui-rating active"></i></a>
+                            <a href="#"><i class="icofont-ui-rating active"></i></a>
+                            <a href="#"><i class="icofont-ui-rating active"></i></a>
+                            <a href="#"><i class="icofont-ui-rating active"></i></a>
+                            <a href="#"><i class="icofont-ui-rating"></i></a>
+                            </span>
+                        <h6 class="mb-1"><a class="text-black" href="#">{{ review.user.name }}</a></h6>
+                            <p class="text-gray">Tue, 20 Mar 2020</p>
+                        </div>
+                        <div class="reviews-members-body">
+                            <p>{{ review.text }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
-        
-   
 {% endblock %}
