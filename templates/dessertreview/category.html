@@ -10,13 +10,21 @@
 {% endblock %}
 
 {% block body_block %}
+<div class="container text-center">
+    <div class="jumbotron p-4">
+        <div class="container">
     {% if category %}
-        <h1>{{ category.name }}</h1>
-        <a href="{% url 'dessertreview:add_dessert' %}">Add Dessert</a><br>
+        <h1 class="jumbotron-heading">{{ category.name }}</h1><br />
+        <a style="font-size:25px" href="{% url 'dessertreview:add_dessert' %}">Add Categories</a><br>
+
+        
         {% if desserts %}
-            <ul>
+        <div class="row">
+
+            <ul class="list-group my-4">
                 {% for dessert in desserts %}
-                    <li>
+                
+                    <li class="list-group-item h3 m-0 set-background">
                         <a href="{% url 'dessertreview:show_dessert' dessert.slug %}">{{ dessert.name }}</a>
                     </li>
                 {% endfor %}
@@ -27,4 +35,6 @@
     {% else %}
         The specified category does not exist.
     {% endif %}
+        </div>
+        </div>
 {% endblock %}
