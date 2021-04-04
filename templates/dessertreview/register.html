@@ -30,8 +30,9 @@
         <div class="v153_332">
             <span class="v153_333 text-center">
                 <h1>Become a part of the community!</h1>
+                <strong><h2>Register here</h2>!</strong><br />
+
             </span>
-            <strong><h2>Register here</h2>!</strong><br />
 
             <div class="container">
             <div class="row">
@@ -70,6 +71,7 @@
                                                 Already got an Account?
                                                 <a href="{% url 'dessertreview:login' %}">Login Here</a>
                                             </p>
+                                            {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +80,11 @@
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+  
+
+   
+
 </div>
-    {% endif %}
+    
 {% endblock %}

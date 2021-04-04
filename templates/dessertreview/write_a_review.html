@@ -6,7 +6,16 @@
 {% endblock %}
 
 {% block body_block %}
-    <h1>Write a Review</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h2 class="card-title text-center">Write a Review</h2>
+
+        <div>
+        </div>
+    
         <div>
             <form id="review_form" method="post" action="{% url 'dessertreview:write_a_review' %}" enctype="multipart/form-data".>
                 {% csrf_token %}
@@ -24,4 +33,8 @@
                 <input type="submit" name="submit" value="Add Review" />
             </form>
         </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
