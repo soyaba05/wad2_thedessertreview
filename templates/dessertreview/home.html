@@ -14,32 +14,37 @@
 {% endblock %}
 
 {% block body_block %}
+<div class="bg">
+<section class="py-5 text-center container">
 
 <div class="v153_332">
     <span class="v153_333 text-center">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+     
+                
         <h1> Welcome to theDessertReview</h1>
+   
+      <p class="lead text-muted">A place for the dessert lovers!</p>
     </span>
-    <br />
 </div>
-<main role="main">
+    <br />
+    <section class="py-5 text-center container">
+  
+    <a href="#" class="btn btn-primary my-2">For Businesses</a>
+    <a href="#" class="btn btn-secondary my-2">Write a review</a>
+  </p>
+</div>
+</div>
+</section>
 
-    <!--<div class="album p-0 m-0 py-5 pr-5 mr-5" style="padding-right: 15rem!important">
-        <div class="container">
-            <table>
-                <tbody>
-                <tr>
-                    <div>
-                        <h1 class="card-section p-1 align-middle" style="display:inline">Find Your Desserts!</h1>
-                    </div>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>-->
+
+<main role="main">
 
     <div id="border">
         <div class="float-left">
             Categories
+  
             {% if categories %}
                 <ul>
                 {% for category in categories %}
@@ -67,17 +72,8 @@
             <br />
             
         </div>
-        <div class="float-right">
-            <img src="{% static 'images/bg.jpeg'%}" class="float-right-background">
-            <p class="style">
-                Welcome to theDessertReview, a place for dessert lovers to share their experience
-            </p>
-            <div id="border">
-                <div class="content">
-                    <button onclick="{% url 'dessertreview:about_us' %}" type="button" class="btn btn-primary btn-lg">For Business</button>
-                    <button type="button" class="btn btn-outline-secondary btn-lg">Write a review</button>
-                </div>
-            </div>
+        
+            
         </div>
 
     </div>
