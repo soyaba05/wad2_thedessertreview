@@ -32,6 +32,8 @@ rel="stylesheet"
 
         <div class="v0_528">
                 <span class="v0_527">{{ s.name }}
+                    <a class="btn btn-primary" href="{% url 'dessertreview:add_shop' %}" role="button">Add Shop</a>
+
                 </span>
                 <ul>
                     {% if shops %}
@@ -39,17 +41,19 @@ rel="stylesheet"
                             <li>
                                 <a href="{% url 'dessertreview:show_shop' s.slug %}">{{ s.name }}</a>
                             </li>
+                       
                         {% endfor %}
+                    </ul>
                     {% else %}
                         <li><strong>There are no shops present.</strong></li>
                     {% endif %}
-                </ul>
+                
 
             
         
     {% if request.user.is_staff %}
-    <a class="btn btn-primary" href="{% url 'dessertreview:add_shop' %}" role="button">Add Shop</a>
     {% endif %}
-</div>      
+        </div>
+     
     
 {% endblock %}

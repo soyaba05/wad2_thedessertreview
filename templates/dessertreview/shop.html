@@ -8,7 +8,12 @@
         Unknown Shop
     {% endif %}
 {% endblock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
 {% block head_block %}
+
+
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script>
     let map;
@@ -28,19 +33,24 @@
 </script>
 {% endblock %}
 {% block body_block %}
+<div class="container text-left">
+    <div class="jumbotron p-4">
+        <div class="container">
     {% if shop %}
     {{shop.postcode}}
         <h1>{{ shop.name }}</h1>
         <div id="map"></div>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoslTzByNyKznG7W21m-hEePC15J5wgGc&callback=initMap&libraries=&v=weekly" async></script>
+            <br /><br />
         <h2>Menu</h2>
+        <br />
         <a class="btn btn-primary" href="{% url 'dessertreview:add_dessert' %}">Add Dessert</a><br>
-        {% if desserts %}
+        {% if desserts %}<br />
             {% regroup desserts by category as dessert_list %}
                 {% for category in dessert_list %}
                     <h3>{{ category.grouper }}</h3>
                     <div class="d-flex flex-wrap img-gallery">
-                        {% for dessert in category.list %} 
+                        {% for dessert in category.list %} <br />
                                 <a href="{% url 'dessertreview:show_dessert' dessert.slug %}">
                                     <figure>
                                         <img class="img-fluid" src="/media/{{dessert.picture}}">
@@ -57,4 +67,6 @@
     {% else %}
         The specified shop does not exist.
     {% endif %}
+        </div>
+    
 {% endblock %}

@@ -10,6 +10,9 @@
 {% endblock %}
 
 {% block body_block %}
+<div class="container text-center">
+    <div class="jumbotron p-4">
+        <div class="container">
     {% if dessert %}
         <h1>{{ dessert.name }}</h1>
         <p>{{dessert.description}}</p>
@@ -20,5 +23,9 @@
         
     {% else %}
         The specified dessert does not exist.
+   
     {% endif %}
+</div>
+        
+   
 {% endblock %}
