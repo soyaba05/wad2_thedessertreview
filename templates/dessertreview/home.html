@@ -30,7 +30,7 @@
     </section>
 </div>
 <br />
-<div class="container" style="text-align: left;"><br />
+<!-- <div class="container" style="text-align: left;"><br />
     <h3 style="text-align: center;">Categories</h3>
     {% if categories %}
         <ul class="list-group my-4">
@@ -58,9 +58,9 @@
     {% else %}
         <strong>There are no shops present.</strong>
     {% endif %}
-</div>
-<!-- <div id="border">
-    <div class="float-sm-left">
+</div> -->
+<div id="border">
+    <div class="float-sm-center">
         <div class="jumbotron jumbotron-fluid">
             <h5 class="display-4">Categories</h5>
             <div class="row">
@@ -70,8 +70,8 @@
                         <p class="lead">
                         <ul>
                         {% for category in categories %}
-                            <li style="list-style-type: none; display: table; text-align: left;">
-                            <a style="font-size:15px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_category' category.slug %}">{{ category.name }}</a>
+                            <li style="list-style-type: none; display: inline-block; text-align: left;">
+                            <a style="font-size:20px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_category' category.slug %}">{{ category.name }}</a>
                             </li>
                         {% endfor %}
                         </ul>
@@ -85,6 +85,8 @@
     </div>
 </div>  
 <div id="border">
+    <div class="float-md-center">
+
     <div class="jumbotron jumbotron-fluid">
         <h5 class="display-4">Shops</h5>
         <div class="row">
@@ -94,7 +96,7 @@
                     <ul>
                     {% for shop in shops %}
                         <li style="list-style-type: none; display: inline-block; text-align: left;">
-                        <a style="font-size:15px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_shop' shop.slug %}">{{ shop.name }}</a>
+                        <a style="font-size:20px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_shop' shop.slug %}">{{ shop.name }}</a>
                         </li>
                     {% endfor %}
                     </ul>
@@ -105,5 +107,6 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
+</div>
 {% endblock %}
