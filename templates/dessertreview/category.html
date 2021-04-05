@@ -14,8 +14,8 @@
     <div class="jumbotron p-4">
         <div class="container">
     {% if category %}
-        <h1 class="jumbotron-heading">{{ category.name }}</h1><br />
-        <a style="font-size:25px" href="{% url 'dessertreview:add_dessert' %}">Add Categories</a><br>
+        <h1 class="jumbotron-heading">{{ category.name }}</h1>
+        <center><a class="btn btn-primary" href="{% url 'dessertreview:add_dessert' %}" role="button">Add a Dessert</a></center>
 
         
         {% if desserts %}
