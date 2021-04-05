@@ -96,7 +96,7 @@
                     <ul>
                     {% for shop in shops %}
                         <li style="list-style-type: none; display: inline-block; text-align: left;">
-                        <a style="font-size:20px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_shop' shop.slug %}">{{ shop.name }}</a>
+                        <a style="font-size:18px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_shop' shop.slug %}">{{ shop.name }}</a>
                         </li>
                     {% endfor %}
                     </ul>
@@ -109,4 +109,24 @@
     </div>
 </div>
 </div>
+
+<div class="card bg-dark text-white">
+    <img class="card-img" src="{% static 'images/home.jpg' %}" alt="Card image">
+    <div class="card-img-overlay">
+    
+    </div>
+  </div>
+
+<div class="card text-center">
+    <div class="card-header">
+      Quote
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>Did you know stressed spelled backwards is desserts.</p>
+        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Loretta LaRoche</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+  
 {% endblock %}
