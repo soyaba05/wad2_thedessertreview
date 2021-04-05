@@ -35,34 +35,68 @@
     <a href="#" class="btn btn-secondary my-2">Write a review</a>
   </p>
 </div>
-</div>
+
+    </section>
 </section>
+<br />
 
 
-<main role="main">
+
+
+
+
+
+
+    
+
 
     <div id="border">
-        <div class="float-left">
-            Categories
+        
+        <div class="float-sm-left">
+
+            
+            
+            
+            <div class="jumbotron jumbotron-fluid">
+                <h5 class="display-4">Categories</h5>
+
+                <div class="row">
+                    
+                  <div class="col-lg-8 mx-auto">
   
             {% if categories %}
+            
+            <p class="lead">
                 <ul>
                 {% for category in categories %}
-                    <li>
-                        <a href="{% url 'dessertreview:show_category' category.slug %}" style="color: #ffc107;">{{ category.name }}</a>
+
+                    <li style="list-style-type: none; display: table; text-align: left;">
+                    
+                        <a style="font-size:15px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_category' category.slug %}" style="color: #ffc107;">{{ category.name }}</a>
                     </li>
                 {% endfor %}
                 </ul>
+            </p>
             {% else %}
                 <p>No categories found</p>
             {% endif %}
-            <br />
-            Shops
+           
+                  </div>
+                  </div>
+                  </div>
+                
+           
+                <div class="jumbotron jumbotron-fluid">
+                <h5 class="display-4">Shops</h5>
+
+                <div class="row">
+                    
+                    <div class="col-lg-8 mx-auto">
             {% if shops %}
                 <ul>
                 {% for shop in shops %}
-                    <li>
-                        <a href="{% url 'dessertreview:show_shop' shop.slug %}">{{ shop.name }}</a>
+                    <li style="list-style-type: none; display: inline-block; margin-left: 3em;">
+                        <a style="font-size:25px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_shop' shop.slug %}">{{ shop.name }}</a>
                     </li>
                 {% endfor %}
                 </ul>
@@ -79,6 +113,7 @@
     </div>
     
     <br />
+    
 {% endblock %}
     
 <!--credit to "https://www.embedgooglemap.net"-->
