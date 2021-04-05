@@ -11,107 +11,99 @@
 
 {% block body_block %}
 <div class="bg">
-<section class="py-5 text-center container">
-
-<div class="v153_332">
-    <span class="v153_333 text-center">
-        <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-     
-                
-        <h1> Welcome to theDessertReview</h1>
-   
-      <p class="lead text-muted">A place for the dessert lovers!</p>
-    </span>
-</div>
-    <br />
     <section class="py-5 text-center container">
-  
-    <a href="#" class="btn btn-primary my-2">For Businesses</a>
-    <a href="#" class="btn btn-secondary my-2">Write a review</a>
-  </p>
+        <div class="v153_332">
+            <span class="v153_333 text-center">
+                <div class="row py-lg-5">
+                    <div class="col-lg-6 col-md-8 mx-auto">  
+                        <h1> Welcome to theDessertReview</h1>
+                        <p class="lead text-muted">A place for the dessert lovers!</p>   
+                        <br>
+                        <section class="py-5 text-center container">
+                            <a href="#" class="btn btn-primary my-2">For Businesses</a>
+                            <a href="#" class="btn btn-secondary my-2">Write a review</a>
+                        </section>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </section>
+</div>
+<br />
+<div class="container" style="text-align: left;"><br />
+    <h3 style="text-align: center;">Categories</h3>
+    {% if categories %}
+        <ul class="list-group my-4">
+        {% for c in categories %}
+            <li class="list-group-item h3 m-0 set-background">
+                <a class="list" href="{% url 'dessertreview:show_category' c.slug %}"><p style="text-align: center; top: 50%;">{{ c.name }}</p></a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <strong>There are no categories present.</strong>
+    {% endif %}
 </div>
 
-    </section>
-</section>
-<br />
-
-
-
-
-
-
-
-
-    
-
-
-    <div id="border">
-        
-        <div class="float-sm-left">
-
+<div class="container" style="text-align: left;"><br />
+    <h3 style="text-align: center;">Shops</h3>
+    {% if shops %}
+        <ul class="list-group my-4">
+        {% for s in shops %}
+            <li class="list-group-item h3 m-0 set-background">
+                <a class="list" href="{% url 'dessertreview:show_shop' s.slug %}"><p style="text-align: center; top: 50%;">{{ s.name }}</p></a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <strong>There are no shops present.</strong>
+    {% endif %}
+</div>
+<!-- <div id="border">
+    <div class="float-sm-left">
+        <div class="jumbotron jumbotron-fluid">
+            <h5 class="display-4">Categories</h5>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    {% if categories %}
             
-            
-            
-            <div class="jumbotron jumbotron-fluid">
-                <h5 class="display-4">Categories</h5>
-
-                <div class="row">
-                    
-                  <div class="col-lg-8 mx-auto">
-  
-            {% if categories %}
-            
-            <p class="lead">
-                <ul>
-                {% for category in categories %}
-
-                    <li style="list-style-type: none; display: table; text-align: left;">
-                    
-                        <a style="font-size:15px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_category' category.slug %}">{{ category.name }}</a>
-                    </li>
-                {% endfor %}
-                </ul>
-            </p>
-            {% else %}
-                <p>No categories found</p>
-                
-            {% endif %}
-           
-                  </div>
-                  </div>
-                  
-                
-           
-            <div class="jumbotron jumbotron-fluid">
-                <h5 class="display-4">Shops</h5>
-
-                <div class="row">
-                    
-                    <div class="col-lg-8 mx-auto">
-            {% if shops %}
-            <p class="lead">
-                <ul>
-                {% for shop in shops %}
-                    <li style="list-style-type: none; display: inline-block; text-align: left;">
+                        <p class="lead">
+                        <ul>
+                        {% for category in categories %}
+                            <li style="list-style-type: none; display: table; text-align: left;">
+                            <a style="font-size:15px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_category' category.slug %}">{{ category.name }}</a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                        </p>
+                    {% else %}
+                        <p>No categories found</p>
+                    {% endif %}
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>  
+<div id="border">
+    <div class="jumbotron jumbotron-fluid">
+        <h5 class="display-4">Shops</h5>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                {% if shops %}
+                    <p class="lead">
+                    <ul>
+                    {% for shop in shops %}
+                        <li style="list-style-type: none; display: inline-block; text-align: left;">
                         <a style="font-size:15px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_shop' shop.slug %}">{{ shop.name }}</a>
-                    </li>
-                {% endfor %}
-                </ul>
-            </p>
-            {% else %}
-                <p>No shops found</p>
-            {% endif %}
+                        </li>
+                    {% endfor %}
+                    </ul>
+                    </p>
+                {% else %}
+                    <p>No shops found</p>
+                {% endif %}
+            </div>
         </div>
     </div>
-            <br />
-        
-        </div>
-
-    </div>
-    
-   
-    
+</div> -->
 {% endblock %}
-    
-<!--credit to "https://www.embedgooglemap.net"-->
