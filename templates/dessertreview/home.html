@@ -68,47 +68,49 @@
 
                     <li style="list-style-type: none; display: table; text-align: left;">
                     
-                        <a style="font-size:15px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_category' category.slug %}" style="color: #ffc107;">{{ category.name }}</a>
+                        <a style="font-size:15px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_category' category.slug %}">{{ category.name }}</a>
                     </li>
                 {% endfor %}
                 </ul>
             </p>
             {% else %}
                 <p>No categories found</p>
+                
             {% endif %}
            
                   </div>
                   </div>
-                  </div>
+                  
                 
            
-                <div class="jumbotron jumbotron-fluid">
+            <div class="jumbotron jumbotron-fluid">
                 <h5 class="display-4">Shops</h5>
 
                 <div class="row">
                     
                     <div class="col-lg-8 mx-auto">
             {% if shops %}
+            <p class="lead">
                 <ul>
                 {% for shop in shops %}
-                    <li style="list-style-type: none; display: inline-block; margin-left: 3em;">
-                        <a style="font-size:25px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_shop' shop.slug %}">{{ shop.name }}</a>
+                    <li style="list-style-type: none; display: inline-block; text-align: left;">
+                        <a style="font-size:15px" class="card-body" style="width: 18rem;" href="{% url 'dessertreview:show_shop' shop.slug %}">{{ shop.name }}</a>
                     </li>
                 {% endfor %}
                 </ul>
+            </p>
             {% else %}
                 <p>No shops found</p>
             {% endif %}
-            <br />
-            
         </div>
+    </div>
+            <br />
         
-            
         </div>
 
     </div>
     
-    <br />
+   
     
 {% endblock %}
     
